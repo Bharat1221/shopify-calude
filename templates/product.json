@@ -178,6 +178,7 @@
         },
         "b6073bf1-e7c1-4123-85d7-38ecfa5a0d24": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Round the Clock Support",
             "icon": "none",
