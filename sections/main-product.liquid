@@ -649,7 +649,7 @@
 
   <div class="product-att-info p-0" >  {{ product.metafields.custom.details }}</div>
   
- 
+{% comment %}  
   <p class="product-att-info p-0 mt-5"><span class="h2 more_detail_2 pr-1">DURATION OF PUJA:</span><span style="font-weight:600;">{{ product.metafields.custom.duration_of_puja }}</span></p> 
                           
   <p class="product-att-info p-0 mt-5"><span class="h2 more_detail_2 pr-1">IDEAL DAY(S) FOR PUJA:</span>{{ product.metafields.custom.ideal_days_for_puja }}</p> 
@@ -700,7 +700,7 @@
       <div class="mt-5 pt-4">
   	<div class="d-flex align-items-center position-relative mb-3">
   		<div class="h2 more_detail pr-2">INTERESTING FACTS</div><label class="line"></label>
-  	</div>
+  	</div> {% endcomment %}
      <div class="row">
              <div class="col-xl-6 col-12">
                                    {{ product.metafields.custom.interesting_facts }}              </div>
