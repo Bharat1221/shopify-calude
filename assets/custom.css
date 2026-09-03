@@ -704,7 +704,7 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   background-color: #fff3f5 !important;
 }
 
-/* Buy it now (dynamic checkout) — solid black */
+/* Buy Now (dynamic checkout) — solid black */
 .product-form__buttons .shopify-payment-button__button,
 .product-form__buttons .shopify-payment-button__button--unbranded {
   background-color: #111111 !important;
@@ -718,13 +718,34 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   border-color: #282828 !important;
 }
 
-/* Remove the red hover ring / border artefacts on both buttons */
+/* Relabel Shopify's native "Buy it now" text to "Buy Now" */
+.product-form__buttons .shopify-payment-button__button--unbranded {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;
+}
+.product-form__buttons .shopify-payment-button__button--unbranded::after {
+  content: "Buy Now" !important;
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  background: none !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  color: #ffffff !important;
+}
+
+/* Remove the red hover ring / border artefacts on the Add to Cart button */
 .product-form__buttons .product-form__submit::before,
 .product-form__buttons .product-form__submit::after,
 .product-form__buttons .product-form__submit:hover::before,
-.product-form__buttons .product-form__submit:hover::after,
-.product-form__buttons .shopify-payment-button__button--unbranded::after,
-.product-form__buttons .shopify-payment-button__button--unbranded:hover::after {
+.product-form__buttons .product-form__submit:hover::after {
   box-shadow: none !important;
   border: 0 !important;
   border-radius: 8px !important;
@@ -753,9 +774,9 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   font-weight: 700;
 }
 
-/* "% OFF" discount badge next to the price */
+/* "% OFF" discount badge — hidden everywhere by default */
 .price__badge-discount {
-  display: inline-block;
+  display: none;
   margin-left: 8px;
   padding: 3px 9px;
   border-radius: 6px;
@@ -767,6 +788,18 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   letter-spacing: 0;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+/* Price + discount badge: show ONLY on the product detail page.
+   Product cards / carousels / collection listings show image + name only. */
+.product__info-container .price__badge-discount {
+  display: inline-block;
+}
+
+.card-wrapper .price,
+.card-information .price,
+.card__information .price {
+  display: none !important;
 }
 
 /* ===================================================================
