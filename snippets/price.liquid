@@ -66,9 +66,13 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
       <span class="price-item price-item--sale price-item--last atoz">
         {{ money_price }}
-       
+
        {% comment %} {{ product.price | money_without_currency }}{% endcomment %}
       </span>
+      {%- if compare_at_price > price -%}
+        {%- assign discount_pct = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round -%}
+        <span class="price__badge-discount">{{ discount_pct }}% OFF</span>
+      {%- endif -%}
     </div>
     <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
       <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>

@@ -675,42 +675,73 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   margin: 0 !important;
 }
 
+/* Identical size for both buttons */
+.product-form__buttons .product-form__submit,
+.product-form__buttons .shopify-payment-button__button,
+.product-form__buttons .shopify-payment-button__button--unbranded {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 0 1.5rem !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-size: 15px !important;
+}
+
 /* Add to Cart — white background, red text, red outline */
 .product-form__buttons .product-form__submit {
   background-color: #ffffff !important;
   color: #ee4e52 !important;
   border: 1px solid #ee4e5e80 !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
+  transition: background-color 0.2s ease !important;
 }
 .product-form__buttons .product-form__submit > span {
   color: #ee4e52 !important;
 }
-.product-form__buttons .product-form__submit::before,
-.product-form__buttons .product-form__submit::after {
-  border-radius: 8px !important;
-  box-shadow: none !important;
+.product-form__buttons .product-form__submit:hover:not([disabled]) {
+  background-color: #fff3f5 !important;
 }
 
 /* Book Puja (dynamic checkout) — solid black */
 .product-form__buttons .shopify-payment-button__button,
-.product-form__buttons .shopify-payment-button__button--unbranded,
-.product-form__buttons .shopify-payment-button__button--unbranded:hover,
-.product-form__buttons .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+.product-form__buttons .shopify-payment-button__button--unbranded {
   background-color: #111111 !important;
   color: #ffffff !important;
   border: 1px solid #111111 !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
+  transition: background-color 0.2s ease !important;
+}
+.product-form__buttons .shopify-payment-button__button--unbranded:hover,
+.product-form__buttons .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background-color: #282828 !important;
+  border-color: #282828 !important;
 }
 .product-form__buttons .shopify-payment-button__button::before,
 .product-form__buttons .shopify-payment-button__button--unbranded::before {
   color: #ffffff !important;
 }
 
+/* Remove the red hover ring / border artefacts on both buttons */
+.product-form__buttons .product-form__submit::before,
+.product-form__buttons .product-form__submit::after,
+.product-form__buttons .product-form__submit:hover::before,
+.product-form__buttons .product-form__submit:hover::after,
+.product-form__buttons .shopify-payment-button__button--unbranded::after,
+.product-form__buttons .shopify-payment-button__button--unbranded:hover::after {
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+}
+
 @media screen and (max-width: 479px) {
   .product-form__buttons {
     flex-direction: column;
+  }
+  .product-form__buttons .product-form__submit,
+  .product-form__buttons .shopify-payment-button__button,
+  .product-form__buttons .shopify-payment-button__button--unbranded {
+    height: auto !important;
   }
 }
 
@@ -718,4 +749,113 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
 .product__info-container .price__badge-sale,
 .product__info-container .product__tax {
   display: none !important;
+}
+
+/* Sale price in red on the product page */
+.product__info-container .price--on-sale .price-item--sale {
+  color: #ee4e52 !important;
+  font-weight: 700;
+}
+
+/* "% OFF" discount badge next to the price */
+.price__badge-discount {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #1aab5a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* ===================================================================
+   Product media gallery (mobile) — overlay arrows + "1 / N" counter
+   chip on the main image, rounded thumbnails with active border
+   =================================================================== */
+@media screen and (max-width: 749px) {
+  .product__media-wrapper slider-component.slider-mobile-gutter:not(.thumbnail-slider) {
+    position: relative;
+    display: block;
+  }
+
+  /* Turn the prev / counter / next bar into an overlay on the main image */
+  .product__media-wrapper .slider-buttons {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* Circular prev / next buttons, vertically centered over the image */
+  .product__media-wrapper .slider-buttons .slider-button {
+    pointer-events: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    color: #111111;
+  }
+  .product__media-wrapper .slider-buttons .slider-button--prev {
+    left: 12px;
+  }
+  .product__media-wrapper .slider-buttons .slider-button--next {
+    right: 12px;
+  }
+  .product__media-wrapper .slider-buttons .slider-button:not([disabled]):hover {
+    background: #ffffff;
+    color: #000000;
+  }
+  .product__media-wrapper .slider-buttons .slider-button[disabled] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .product__media-wrapper .slider-buttons .slider-button .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  /* "1 / N" counter chip, bottom-right of the main image */
+  .product__media-wrapper .slider-buttons .slider-counter {
+    pointer-events: auto;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    margin: 0;
+    padding: 3px 11px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+  }
+  .product__media-wrapper .slider-buttons .slider-counter span {
+    color: #ffffff;
+  }
+}
+
+/* Rounded thumbnails with a clear active state (all breakpoints) */
+.product__media-wrapper .thumbnail-list__item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product__media-wrapper .thumbnail.global-media-settings img {
+  border-radius: 8px !important;
+}
+.product__media-wrapper .thumbnail[aria-current] {
+  box-shadow: 0 0 0 2px #ee4e52 !important;
+  border-radius: 8px;
 }
