@@ -1,0 +1,119 @@
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+<div class="main-breadcrumbs">
+<div class="page-width">  
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+
+  <a href="/" title="Home" class="text-white"><i class="fa fa-home font-18"></i></a>
+
+
+
+
+  
+
+  {% if template contains 'page' %}
+
+    <i class="fa fa-chevron-right"></i>
+
+    <span>{{ page.title }}</span>
+
+
+
+
+  
+
+  {% elsif template contains 'product' %}
+{% comment %}
+    {% if collection.url %}
+
+      <i class="fa fa-chevron-right"></i>
+
+      {{ collection.title | link_to: collection.url }}
+
+    {% endif %}
+{% endcomment %}    
+
+   <i class="fa fa-chevron-right"></i>
+   {% if request.path contains "rudraksha" %}
+      <span class="url"><a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i>  {{ product.title }}</span>  
+     {% else %}
+      {% if product.collections[0].title == "Online Puja" %}
+      <span class="url"><a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i> <a href="{{ product.collections[1].url }}" class="text-white">{{ product.collections[1].title }}</a> <i class="fa fa-chevron-right"></i> {{ product.title }}</span>  
+     {% else %}
+    <span class="url"><a href="{{ product.collections[1].url }}" class="text-white">{{ product.collections[1].title }}</a> <i class="fa fa-chevron-right"></i> <a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i> {{ product.title }}</span>
+      {% endif %}
+    {% endif %}
+
+
+
+  
+  {% elsif template contains 'collection' and collection.handle %}
+
+    <i class="fa fa-chevron-right"></i>
+
+    {% if current_tags %}
+
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+
+      {{ collection.title | link_to: url }}
+
+     &rsaquo;
+
+      <span>{{ current_tags | join: " + " }}</span>
+
+    {% else %}
+ 
+      <span class="coll"><a href="{{ routes.collections_url }}" class="text-white">Collections</a> <i class="fa fa-chevron-right"></i> {{ collection.title }}</span>
+
+    {% endif %}
+
+
+
+
+  
+  {% elsif template == 'blog' %}
+
+   <i class="fa fa-chevron-right"></i>
+
+    {% if current_tags %}
+
+      {{ blog.title | link_to: blog.url }}
+
+      <i class="fa fa-chevron-right"></i>
+
+      <span>{{ current_tags | join: " + " }}</span>
+
+    {% else %}
+
+    <span>{{ blog.title }}</span>
+
+    {% endif %}
+
+
+
+  
+
+  {% elsif template == 'article' %}
+
+    <i class="fa fa-chevron-right"></i>
+
+    {{ blog.title | link_to: blog.url }}
+
+    <i class="fa fa-chevron-right"></i>
+
+    <span>{{ article.title }}</span>
+
+  {% else %}
+
+   <i class="fa fa-chevron-right"></i>
+
+   <span>{{ page_title }}</span>
+
+  {% endif %}
+
+
+  
+</nav>
+</div> 
+</div>
+
+{% endunless %} 

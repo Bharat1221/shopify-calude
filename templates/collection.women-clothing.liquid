@@ -1,0 +1,28 @@
+{%- assign collection_handle = collection.handle -%}
+  {%- assign subs = linklists[collection_handle].links -%}
+
+  <div class="collection-subs">
+    <div class="container">
+      <div class="row">
+      {%- for collection in collections -%}
+        {% assign subitem_handle = collection.title | handle %}
+        <div class="col-md-3 col-xs-12">
+          <div class="sub-collection_item">
+            <div class="sub-collection_title">
+              <a href="{{ collections[subitem_handle].url }}">{{ collections[subitem_handle].title }}</a>
+            </div>
+            {% if collections[subitem_handle].image %}
+            <div class="image-custom" style="padding-top: 128%;">
+              <img class="img-fluid image-responsive" src="{{ collections[subitem_handle].image | img_url: 'master' }}" alt="Sub image">
+            </div>
+            {% else %}
+            <div class="image-custom" style="padding-top: 128%;">
+              {{ 'collection-1' | placeholder_svg_tag }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>

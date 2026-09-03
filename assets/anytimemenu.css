@@ -1,0 +1,323 @@
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.5em solid;
+    border-right: 0.5em solid transparent;
+    border-bottom: 0;
+    border-left: 0.5em solid transparent;
+      margin-top: 8px;
+}
+/*.pl-lg-0.col-lg-6.mb-3.mb-lg-0:nth-child(2) .list-group div a{
+      width: 50%;
+    display: inline-block;
+}*/
+
+/*.pl-lg-0.col-lg-6.mb-3.mb-lg-0:nth-child(1) .list-group div a{
+      width: 50%;
+    display: inline-block;
+}*/
+
+#main_nav {
+    left: 0;
+    right: 0;
+    top:82px ;
+    z-index:9;
+    background: #CF3544;
+    color: #FFFFFF !important;
+}
+.header__heading a{
+  text-decoration:none !important;
+}
+.header__heading a:hover{
+  color:#000 !important;
+}
+.list-group-flush {
+    border-radius: 0;
+}
+#main_nav a {
+    color: #FFFFFF !important;
+}
+
+.font-weight-semi-bold {
+    font-weight: 600!important;
+}
+.text-decoration-none {
+    text-decoration: none!important;
+}
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+.dropdown-caret{
+    display: none;
+} 
+@media (min-width: 992px)
+{
+    #main_nav .dropdown-menu {
+        display: block;
+    }
+    #main_nav a:hover, #main_nav af:focus, #main_nav a:active {
+        color: #FFFBE8 !important;
+        background-color: transparent;
+        text-decoration: underline !important;
+    }
+}
+
+
+@media (max-width: 991px)
+{
+  #Rectangle_1028{
+    transform: translate(-2px, 17px) !important;
+  }
+    #main_nav {
+        width: 40%;
+        top: 74px !important;
+        background: #FFFFFF;
+        height: calc(100vh - 69px);
+        color: #000000 !important;
+        overflow-y: auto;
+}
+
+#main_nav a {
+    color: #000000 !important;
+}
+
+
+#main_nav.navbar-collapse.collapsing {
+    left: -60%;
+    transition: height 0s ease;
+}
+
+#main_nav.navbar-collapse.show {
+    left: 0;
+    transition: left 300ms ease-in-out;
+    box-shadow: 0px 6px 6px #00000029;
+}
+
+.navbar-toggler.collapsed~#main_nav.navbar-collapse {
+    transition: left 500ms ease-in-out;
+}
+
+#main_nav .dropdown-item.active,
+.dropdown-item:active {
+        color: #000;
+        background-color: #f1f1f1;
+}
+
+    .navbar {
+    background: #b12b38;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.navbar-light .navbar-toggler {
+    border: none;
+    padding: 0;
+}
+
+.dropdown-caret{
+    display: block;
+} 
+  #main_nav .dropdown-menu{
+    top:-17px !important;
+  }
+}
+a:not([href]){
+  cursor:pointer !important;
+}
+
+
+
+@media (max-width: 767px)
+{
+   
+    #main_nav {
+        width: 65%;
+        top: 76px;
+        padding: 0px;
+        left: -100%;
+        height: calc(100vh - 65px);
+        transition: 1s all;
+    }
+
+}
+@media (max-width: 500px){
+    #main_nav {
+        top: 65px !important;
+    }
+}
+
+@media (max-width: 400px)
+{
+   .list-group-flush > .f16{
+    font-size: 12px !important;
+  }
+  .f16 {
+    font-size: 14px;
+}
+  .dropdown-toggle:after{
+    margin-top: 4px;
+  }
+    #main_nav {
+        width: 65%;
+        
+        padding: 0px;
+        height: calc(100vh - 54px);
+    }
+}
+@media (max-width: 360px){
+   
+  
+    #main_nav {
+        top: 61px !important;
+    }
+  .collection-hero__title{
+        margin-top: 12px !important;
+  } 
+}
+
+
+
+#main_nav .dropdown-menu {
+    background-color: transparent;
+    position: relative !important;
+    border: 0;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+#main_nav .dropdown-menu .dropdown-item {
+    padding: 0.25rem 0;
+}   
+.header #dropdownMenuLink {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.fadeInUp5px {
+    -webkit-animation: fadeInUpKey 300ms ease-in-out;
+    animation: fadeInUpKey 300ms ease-in-out;
+}
+.user-options {
+    min-width: 280x;
+    border: 6px;
+    box-shadow: 0 0 50px 0 rgb(82 63 105 / 15%);
+    padding: 0;
+    overflow: hidden;
+    top: 56px!important;
+}
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+.user-options ul {
+    list-style: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 240px;
+}
+.user-options ul li {
+    border-bottom: solid 1px #e4e4e4;
+}
+
+li.namedisplay {
+    padding: 15px 10px;
+}
+li.namedisplay .name {
+    background: #ee4e5e;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-right: 15px;
+    overflow: hidden!important;
+    color: #fff;
+}
+li.namedisplay h2 {
+    font-weight: 500;
+    color: #000;
+    font-size: 16px;
+}
+.font-weight-semi-bold {
+    font-weight: 600!important;
+}
+.f16{
+  font-size:16px;
+}
+.toggle_container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+:not(svg) {
+    transform-origin: -10px 9px;
+}
+.class1 {
+        transform: rotate(-54deg);
+    transform-origin: 27px 8px;
+}
+.class2 {
+    transform-origin: -6px 11px;
+    transform: rotate(54deg);
+}
