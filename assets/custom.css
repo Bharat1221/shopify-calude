@@ -657,7 +657,7 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
 }
 
 /* ===================================================================
-   Product page buy buttons — Add to Cart (outlined) + Book Puja (black)
+   Product page buy buttons — Add to Cart (outlined) + Buy it now (black)
    Layout & styling to match the reference design
    =================================================================== */
 .product-form__buttons {
@@ -704,7 +704,7 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   background-color: #fff3f5 !important;
 }
 
-/* Book Puja (dynamic checkout) — solid black */
+/* Buy it now (dynamic checkout) — solid black */
 .product-form__buttons .shopify-payment-button__button,
 .product-form__buttons .shopify-payment-button__button--unbranded {
   background-color: #111111 !important;
@@ -716,10 +716,6 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
 .product-form__buttons .shopify-payment-button__button--unbranded:hover:not([disabled]) {
   background-color: #282828 !important;
   border-color: #282828 !important;
-}
-.product-form__buttons .shopify-payment-button__button::before,
-.product-form__buttons .shopify-payment-button__button--unbranded::before {
-  color: #ffffff !important;
 }
 
 /* Remove the red hover ring / border artefacts on both buttons */

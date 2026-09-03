@@ -1486,7 +1486,7 @@ button.shopify-payment-button__button--unbranded {
 
 .shopify-payment-button__button--unbranded:before,
 .shopify-payment-button [role="button"]:before{
-   content: 'Book Puja'; top:15px;
+   content: ''; top:15px;
   z-index:2;
 }
 
