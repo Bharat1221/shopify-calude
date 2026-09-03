@@ -177,12 +177,12 @@
               </p>
 
             {%- when 'description' -%}
-              {%- if product.description != blank -%}
-                <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{ product.description }}
-                </div>
-              {%- endif -%}
-  
+              {%- comment -%}
+                Description output is relocated to just above the "You may also like"
+                section — see sections/related-products.liquid. Re-enable the block
+                below (and remove it from related-products.liquid) to move it back.
+              {%- endcomment -%}
+
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"

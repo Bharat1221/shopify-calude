@@ -888,3 +888,9 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   box-shadow: 0 0 0 2px #ee4e52 !important;
   border-radius: 8px;
 }
+
+/* Product description relocated to just above "You may also like" */
+.product__description--before-related {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
