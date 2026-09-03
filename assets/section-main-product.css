@@ -1112,7 +1112,10 @@ a.product__text {
   }
 
   .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
-    width: calc(25% - 0.8rem);
+    /* width: calc(25% - 0.8rem); */
+            min-width: 44px;
+        width: 44px;
+        height: 44px;
   }
 
   .product--thumbnail_slider .slider-mobile-gutter .slider-button {
