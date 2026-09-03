@@ -695,12 +695,12 @@
     <div class="guarntee_sec mt-5">
   <p class="p-2 m-0 pl-4">ANYTIME ASTRO’S GUARANTEE</p>
   <div class="product-att-info p-0">{{ product.metafields.custom.anytime_astro_s_guarantee }}</div>
-  </div>
+  </div> {% endcomment %}
 
-      <div class="mt-5 pt-4">
+      {% comment %} <div class="mt-5 pt-4">
   	<div class="d-flex align-items-center position-relative mb-3">
   		<div class="h2 more_detail pr-2">INTERESTING FACTS</div><label class="line"></label>
-  	</div> {% endcomment %}
+  	</div>
      <div class="row">
              <div class="col-xl-6 col-12">
                                    {{ product.metafields.custom.interesting_facts }}              </div>
@@ -710,7 +710,7 @@
               </div> </div>
              </div>
   		
-  </div>                         
+  </div>                          {% endcomment %}
 </section>
 
 {% schema %}
