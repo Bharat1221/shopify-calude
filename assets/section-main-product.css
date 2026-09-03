@@ -1114,7 +1114,7 @@ a.product__text {
 
   .product--thumbnail_slider .slider-mobile-gutter .slider-button {
     display: flex;
-    padding: 0 !important;
+    /* padding: 0 !important; */
   }
 }
 
