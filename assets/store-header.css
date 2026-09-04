@@ -47,13 +47,25 @@
 .sh-header *::after { box-sizing: border-box; }
 
 .sh-nav { padding: 8px 0; }
-.sh-header .container { padding-left: 16px; padding-right: 16px; }
 .sh-nav__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   min-height: 60px;
+}
+
+/* Both containers use Dawn's .page-width so the bar and the mega menu
+   share exactly the same left/right edge. */
+@media screen and (min-width: 1200px) {
+  .sh-nav__inner.page-width {
+    padding: 0 4rem;
+  }
+  /* left/right only — the mega menu keeps its own vertical padding */
+  .sh-mega__inner.page-width {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
 
 /* --------------------------------------------------------- left side */
@@ -251,19 +263,22 @@
   overflow-y: auto;
 }
 
-.sh-mega__cols {
-  padding: 26px 0 34px;
-  column-count: 4;
-  column-gap: 38px;
+.sh-mega[hidden] { display: none; }
+
+.sh-mega__inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 38px;
+  padding-top: 26px;
+  padding-bottom: 34px;
 }
+.sh-mega__col { min-width: 0; }
 
 .sh-group {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
   position: relative;
   margin-bottom: 30px;
 }
+.sh-group:last-child { margin-bottom: 0; }
 
 .sh-group__title {
   display: flex;
@@ -341,24 +356,32 @@
   transform: rotate(-135deg);
   transform-origin: center center;
 }
+/* group with no children (e.g. "Free Services New") keeps no chevron */
+.sh-group--solo .sh-group__toggle { display: none !important; }
 
 /* ------------------------------------------------------- responsive */
 @media (min-width: 992px) {
-  /* desktop: every group's links stay open regardless of .collapse */
-  .sh-group__links.collapse { display: block !important; height: auto !important; }
+  /* desktop: every group's links stay open */
+  .sh-group__links { display: block !important; }
   .sh-burger--mobile { display: none !important; }
 }
 
 @media (max-width: 1199.98px) {
-  .sh-mega__cols { column-count: 3; }
+  .sh-mega__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 991.98px) {
   .sh-burger--desktop { display: none !important; }
-  .sh-mega__cols { column-count: 1; column-gap: 0; padding: 18px 0 24px; }
+  .sh-mega__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-top: 18px;
+    padding-bottom: 24px;
+  }
   .sh-group { margin-bottom: 16px; }
   .sh-group__toggle { display: block; }
-  .sh-group__links.collapse:not(.show) { display: none; }
+  .sh-group__links { display: none; }
+  .sh-group.is-open > .sh-group__links { display: block; }
   .sh-mega { max-height: calc(100vh - 84px); }
   .sh-nav__inner { min-height: 54px; }
 }

@@ -1,0 +1,114 @@
+{% comment %}
+  Static mega-menu content, mirroring Extra_Pages/consultAstroSection.html.
+
+  Four explicit columns so the grouping matches the reference exactly:
+    1. Buy Products
+    2. Astrology Online (New)
+    3. Astrology / Horoscope / Panchang / Free Services New (New)
+    4. Vrat and Upvaas / Muhurat
+
+  To drive this from Shopify Navigation instead, replace this snippet's body
+  with a loop over linklists[...] — the .sh-* markup below is the contract.
+{% endcomment %}
+
+{%- assign aa = 'https://www.anytimeastro.com' -%}
+
+<div class="sh-mega__col">
+  <div class="sh-group">
+    <a href="{{ aa }}/store/products/" class="sh-group__title"><span>Buy Products</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Buy Products"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/store/products/brclt/">Bracelet</a>
+      <a class="sh-link" href="{{ aa }}/store/products/rudksh/">Rudraksha Bead</a>
+      <a class="sh-link" href="{{ aa }}/store/products/gem/">Gemstone</a>
+      <a class="sh-link" href="{{ aa }}/store/products/yntr/">Yantra</a>
+      <a class="sh-link" href="{{ aa }}/store/products/kvch/">Kavach</a>
+      <a class="sh-link" href="{{ aa }}/store/products/combo/">Combo</a>
+      <a class="sh-link" href="{{ aa }}/store/products/crydt/">Crystal Dome Trees</a>
+      <a class="sh-link" href="{{ aa }}/store/products/frame/">Frame</a>
+      <a class="sh-link" href="{{ aa }}/store/products/pyramid/">Pyramids</a>
+    </div>
+  </div>
+</div>
+
+<div class="sh-mega__col">
+  <div class="sh-group">
+    <span class="sh-group__title"><span>Astrology Online</span><span class="sh-badge">New</span></span>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Astrology Online"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/talk-to-astrologer" target="_blank" rel="noopener">Talk To Astrologer</a>
+      <a class="sh-link" href="{{ aa }}/chat-with-astrologer" target="_blank" rel="noopener">Chat With Astrologer</a>
+      <a class="sh-link" href="{{ aa }}/marital-life" target="_blank" rel="noopener">Marital Life</a>
+      <a class="sh-link" href="{{ aa }}/love-and-relationships" target="_blank" rel="noopener">Love &amp; Relationships</a>
+      <a class="sh-link" href="{{ aa }}/career-and-business" target="_blank" rel="noopener">Career &amp; Job</a>
+      <a class="sh-link" href="{{ aa }}/cheating-and-affairs" target="_blank" rel="noopener">Cheating &amp; Affairs</a>
+      <a class="sh-link" href="{{ aa }}/numerology-reading" target="_blank" rel="noopener">Numerology</a>
+      <a class="sh-link" href="{{ aa }}/break-up-and-divorce" target="_blank" rel="noopener">Break-Up &amp; Divorce</a>
+      <a class="sh-link" href="{{ aa }}/vedic-astrology" target="_blank" rel="noopener">Vedic Astrology</a>
+      <a class="sh-link" href="{{ aa }}/kids-and-education" target="_blank" rel="noopener">Kids &amp; Education</a>
+      <a class="sh-link" href="{{ aa }}/tarot-reading" target="_blank" rel="noopener">Tarot Reading</a>
+      <a class="sh-link" href="{{ aa }}/relationship-counseling" target="_blank" rel="noopener">Relationship Counseling</a>
+    </div>
+  </div>
+</div>
+
+<div class="sh-mega__col">
+  <div class="sh-group">
+    <a href="{{ aa }}/astrology" class="sh-group__title"><span>Astrology</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Astrology"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/astrology/kundali-matching" target="_blank" rel="noopener">Kundali Matching</a>
+      <a class="sh-link" href="{{ aa }}/astrology/janam-kundali" target="_blank" rel="noopener">Free Janam Kundali</a>
+    </div>
+  </div>
+
+  <div class="sh-group">
+    <a href="{{ aa }}/horoscope" class="sh-group__title"><span>Horoscope</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Horoscope"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/horoscope/daily-horoscope" target="_blank" rel="noopener">Daily Horoscope</a>
+      <a class="sh-link" href="{{ aa }}/horoscope/monthly-horoscope" target="_blank" rel="noopener">Monthly Horoscope</a>
+      <a class="sh-link" href="{{ aa }}/horoscope/yearly-horoscope" target="_blank" rel="noopener">Yearly Horoscope</a>
+    </div>
+  </div>
+
+  <div class="sh-group">
+    <a href="{{ aa }}/panchang" class="sh-group__title"><span>Panchang</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Panchang"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/panchang/today-panchang" target="_blank" rel="noopener">Today's Panchang</a>
+    </div>
+  </div>
+
+  <div class="sh-group sh-group--solo">
+    <a href="{{ aa }}/free-services" class="sh-group__title"><span>Free Services New</span><span class="sh-badge">New</span></a>
+  </div>
+</div>
+
+<div class="sh-mega__col">
+  <div class="sh-group">
+    <a href="{{ aa }}/vrats" class="sh-group__title"><span>Vrat and Upvaas</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Vrat and Upvaas"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/vrats/purnima-vrat" target="_blank" rel="noopener">Purnima Vrat</a>
+      <a class="sh-link" href="{{ aa }}/vrats/amavasya-dates" target="_blank" rel="noopener">Amavasya Dates</a>
+      <a class="sh-link" href="{{ aa }}/vrats/ekadashi-dates" target="_blank" rel="noopener">Ekadashi Vrat</a>
+      <a class="sh-link" href="{{ aa }}/vrats/pradosh-dates" target="_blank" rel="noopener">Pradosh Vrat</a>
+      <a class="sh-link" href="{{ aa }}/vrats/sankashti-chaturthi" target="_blank" rel="noopener">Sankashti Chaturthi</a>
+      <a class="sh-link" href="{{ aa }}/vrats/vinayaka-chaturthi" target="_blank" rel="noopener">Vinayaka Chaturthi</a>
+      <a class="sh-link" href="{{ aa }}/vrats/sankranti" target="_blank" rel="noopener">Sankranti Dates</a>
+      <a class="sh-link" href="{{ aa }}/vrats/satyanarayan-dates" target="_blank" rel="noopener">Satyanarayan Puja</a>
+    </div>
+  </div>
+
+  <div class="sh-group">
+    <a href="{{ aa }}/muhurat" class="sh-group__title"><span>Muhurat</span></a>
+    <button class="sh-group__toggle" type="button" data-sh-group-toggle aria-expanded="false" aria-label="Muhurat"></button>
+    <div class="sh-group__links">
+      <a class="sh-link" href="{{ aa }}/muhurat/choghadiya" target="_blank" rel="noopener">Choghadiya</a>
+      <a class="sh-link" href="{{ aa }}/muhurat/rahu-kalam" target="_blank" rel="noopener">Rahu Kaal</a>
+      <a class="sh-link" href="{{ aa }}/muhurat/hora" target="_blank" rel="noopener">Shubha Hora</a>
+      <a class="sh-link" href="{{ aa }}/muhurat/gowri-panchangam" target="_blank" rel="noopener">Gowri Panchangam</a>
+    </div>
+  </div>
+</div>
