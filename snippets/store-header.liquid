@@ -257,7 +257,7 @@
   </nav>
 
   {%- comment -%} ---------------- mega menu ---------------- {%- endcomment -%}
-  <div class="sh-mega" id="StoreMegaMenu" hidden>
+  <div class="sh-mega" id="StoreMegaMenu">
     <div class="sh-mega__inner page-width">
       {%- render 'store-header-menu' -%}
     </div>
@@ -269,18 +269,24 @@
     var mega = document.getElementById('StoreMegaMenu');
     var toggles = Array.prototype.slice.call(document.querySelectorAll('[data-sh-mega-toggle]'));
 
+    function megaIsOpen() {
+      return !!mega && mega.classList.contains('is-open');
+    }
+
     function setMega(open) {
       if (!mega) return;
-      mega.hidden = !open;
       mega.classList.toggle('is-open', open);
+      mega.setAttribute('aria-hidden', open ? 'false' : 'true');
       toggles.forEach(function (btn) { btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
     }
+
+    setMega(false);
 
     toggles.forEach(function (btn) {
       btn.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        setMega(mega.hidden);
+        setMega(!megaIsOpen());
       });
     });
 
@@ -302,7 +308,7 @@
         if (!el.contains(event.target)) el.removeAttribute('open');
       });
       // mega menu
-      if (mega && !mega.hidden && !event.target.closest('.sh-header')) setMega(false);
+      if (megaIsOpen() && !event.target.closest('.sh-header')) setMega(false);
     });
 
     document.addEventListener('keyup', function (event) {
@@ -310,7 +316,7 @@
       document.querySelectorAll('details[data-sh-user][open]').forEach(function (el) {
         el.removeAttribute('open');
       });
-      if (mega && !mega.hidden) setMega(false);
+      if (megaIsOpen()) setMega(false);
     });
   })();
 </script>
