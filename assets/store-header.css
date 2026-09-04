@@ -1,0 +1,175 @@
+/* =====================================================================
+   Anytime Astro — Store Header (companion CSS)
+   Pairs with snippets/store-header.liquid. Bootstrap 5 is loaded
+   globally in layout/theme.liquid, so only custom classes are styled
+   here plus a few overrides that let the Bootstrap navbar sit inside
+   Dawn's section-header wrapper.
+   Brand accent: #ee4e5e
+   ===================================================================== */
+
+:root {
+  --aa-pink: #ee4e5e;
+  --aa-pink-soft: #fff5f6;
+  --aa-dark: #130708;
+  --aa-text: #333;
+  --aa-border: #ececec;
+  --aa-font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* -------------------------------------------------- Dawn integration */
+.section-header .store-header {
+  display: block;
+  padding: 0;
+  max-width: none;
+}
+.section-header .store-header .navbar {
+  font-family: var(--aa-font);
+  padding: 0.5rem 0;
+}
+.section-header .store-header .container,
+.section-header .store-header .container-fluid {
+  max-width: var(--page-width, 1200px);
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------- shell */
+.store-header { z-index: 3; }
+.store-header .box-shadow { box-shadow: 0 2px 12px rgba(0, 0, 0, .08); }
+.store-header #navbar .container,
+.store-header #navbar .container-fluid { min-height: 56px; }
+
+.store-header .navbar-toggler { padding: .25rem .4rem; }
+.store-header .navbar-toggler:focus { box-shadow: none; }
+.store-header .navbar-toggler .navbar-toggler-icon {
+  width: 22px; height: 22px; background-size: contain;
+}
+
+/* --------------------------------------------------------------- logo */
+.store-header .anytime-logo { text-decoration: none; }
+.store-header .anytime-logo-img { width: 53px; height: 53px; }
+.store-header .anytime-logo-text { font-size: 1.15rem; line-height: 1.15; letter-spacing: .2px; }
+.store-header .anytime-logo-subtext { font-size: .68rem; line-height: 1; color: #5b5b5b; letter-spacing: .2px; }
+
+/* ---------------------------------------------------- right icon row */
+.store-header .header-call-chat-btn .list-inline-item { line-height: 0; }
+.store-header .home-icon svg path,
+.store-header .search-icon svg path,
+.store-header .cartbar svg path { fill: #1b1b1b; transition: fill .15s ease; }
+.store-header .home-icon:hover svg path,
+.store-header .search-icon:hover svg path,
+.store-header .cartbar:hover svg path { fill: var(--aa-pink); }
+.store-header .home-icon,
+.store-header .search-icon,
+.store-header .cartbar { cursor: pointer; }
+.store-header .search-icon svg,
+.store-header .home-icon svg { width: 22px; height: 22px; }
+
+/* Shopify search opens through <details-modal>; make the <summary> a bare icon */
+.store-header .header__search { list-style: none; }
+.store-header .header__search > details { position: static; }
+.store-header .header__search > details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.store-header .header__search > details > summary::-webkit-details-marker { display: none; }
+.store-header .header__search .modal__toggle-close { width: 20px; height: 20px; }
+
+/* cart bubble */
+.store-header .cartbar { position: relative; display: inline-flex; }
+.store-header .cart-count-bubble {
+  position: absolute;
+  top: -6px; right: -8px;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600; line-height: 1; color: #fff;
+  background: var(--aa-pink); border-radius: 50px;
+}
+
+/* ------------------------------------------------- profile dropdown */
+.store-header .profileiconafterlogin { box-shadow: none !important; border: 0; line-height: 0; background: none; }
+.store-header .profileiconafterlogin::after { display: none; }
+.store-header .profileiconafterlogin svg path { fill: #1b1b1b; }
+.store-header .profileiconafterlogin:hover svg path { fill: var(--aa-pink); }
+
+.store-header .user-options {
+  min-width: 232px; border: 0; border-radius: 10px; padding: 0; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .15); margin-top: .5rem;
+  z-index: 1031;
+}
+.store-header .user-options .namedisplay { padding: 16px 12px 12px; }
+.store-header .dropdown-profile { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.store-header .textwrap-profile-details {
+  max-width: 200px; margin-inline: auto;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.store-header .user-options .dropdown-item {
+  display: flex; align-items: center; font-size: .92rem; color: var(--aa-text);
+}
+.store-header .user-options .dropdown-item:hover { background: var(--aa-pink-soft); color: var(--aa-pink); }
+.store-header .user-options .dropdown-item:hover svg path { fill: var(--aa-pink); }
+.store-header .red-top-border { border-top: 1px solid var(--aa-border); }
+.store-header .accSet svg, .store-header .accSettingWeb svg { vertical-align: middle; }
+
+/* =====================================================================
+   MEGA MENU  (#main_nav)
+   ===================================================================== */
+.store-header #main_nav {
+  top: 100%; left: 0; right: 0;
+  background: #fff;
+  border-top: 1px solid #f1f1f1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .10);
+  z-index: 1031;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+.store-header #main_nav.navbar-collapse:not(.show):not(.collapsing) { display: none !important; }
+.store-header #main_nav.navbar-collapse.show,
+.store-header #main_nav.navbar-collapse.collapsing { display: block !important; }
+
+.store-header #main_nav .border-pink {
+  display: block; color: #2a2a2a !important;
+  padding-bottom: 8px; margin-bottom: 10px;
+  border-bottom: 2px solid var(--aa-pink) !important;
+  font-size: .98rem; cursor: pointer;
+}
+.store-header #main_nav .border-pink:hover { color: var(--aa-pink) !important; }
+
+.store-header .new-badge {
+  height: 18px; min-width: 34px; padding: 0 6px;
+  background: var(--aa-pink); color: #fff; font-weight: 500;
+  font-size: 12px; border-radius: 4px;
+}
+
+.store-header #main_nav .dropdown-item {
+  padding: .3rem 0; color: #555; white-space: normal; background: transparent;
+}
+.store-header #main_nav .dropdown-item:hover {
+  color: var(--aa-pink); background: transparent; padding-left: 4px; transition: .15s;
+}
+
+/* desktop (>=lg): each column's links show as a static open list */
+@media (min-width: 992px) {
+  .store-header #main_nav .list-group .dropdown-menu {
+    display: block !important; position: static; float: none;
+    border: 0; margin: 0; padding: 0; box-shadow: none; background: transparent;
+  }
+  .store-header #main_nav .list-group .dropdown-toggle { display: none !important; }
+}
+
+/* mobile (<lg): chevron collapses/expands each group */
+@media (max-width: 991.98px) {
+  .store-header #main_nav .list-group { position: relative; }
+  .store-header #main_nav .dropdown-toggle::after {
+    position: absolute; right: 2px; top: 4px; content: ""; border: 0;
+    width: 8px; height: 8px;
+    border-right: 2px solid #888; border-bottom: 2px solid #888;
+    transform: rotate(45deg); transition: transform .2s;
+  }
+  .store-header #main_nav .dropdown-toggle[aria-expanded="true"]::after { top: 8px; transform: rotate(-135deg); }
+  .store-header #main_nav .dropdown-menu { border: 0; box-shadow: none; padding-left: 0; }
+}

@@ -1,0 +1,307 @@
+{% comment %}
+  Store header — custom Bootstrap-5 navbar wired to Shopify behaviour.
+
+  Icons:
+  - Home   -> routes.root_url
+  - Search -> Shopify predictive-search modal (<details-modal>, details-modal.js)
+  - Cart   -> #cart-icon-bubble, opened by cart-drawer.js (settings.cart_type == 'drawer')
+  - Account-> customer account / login / logout via routes.*
+
+  Requires: Bootstrap 5 bundle (loaded in layout/theme.liquid), assets/store-header.css,
+  and the Shopify scripts already included by sections/header.liquid
+  (details-modal.js, search-form.js, cart-drawer.js) plus predictive-search.js from theme.liquid.
+{% endcomment %}
+
+<header class="store-header{% if section.settings.menu != blank %} store-header--has-menu{% endif %}">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white box-shadow" id="navbar">
+    <div class="container flex-nowrap px-0">
+
+      {%- comment -%} ---------- left: hamburger + logo ---------- {%- endcomment -%}
+      <div class="d-flex align-items-center justify-content-start gap-2">
+        {%- if section.settings.menu != blank -%}
+          <button
+            class="navbar-toggler border-0 d-lg-none d-block p-1 collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main_nav"
+            aria-controls="main_nav"
+            aria-expanded="false"
+            aria-label="{{ 'sections.header.menu' | t }}"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        {%- endif -%}
+
+        <a href="{{ routes.root_url }}" class="d-flex align-items-center anytime-logo gap-1">
+          {%- if settings.logo != blank -%}
+            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            <span class="px-0 me-1">
+              <img
+                src="{{ settings.logo | image_url: width: 120 }}"
+                class="anytime-logo-img"
+                alt="{{ logo_alt }}"
+                width="53"
+                height="53"
+                loading="eager"
+              >
+            </span>
+          {%- endif -%}
+          <span class="px-0">
+            <span class="anytime-logo-text fw-semibold text-dark d-block">{{ shop.name }}</span>
+            {%- if section.settings.header_subtext != blank -%}
+              <span class="anytime-logo-subtext d-block text-dark">{{ section.settings.header_subtext }}</span>
+            {%- else -%}
+              <span class="anytime-logo-subtext d-block text-dark">Consult Online Astrologers Anytime</span>
+            {%- endif -%}
+          </span>
+        </a>
+      </div>
+
+      {%- comment -%} ---------- right: icon row ---------- {%- endcomment -%}
+      <div class="d-flex align-items-center header-call-chat-btn justify-content-end">
+        <ul class="list-inline mb-0 d-flex align-items-center">
+
+          {%- comment -%} Home {%- endcomment -%}
+          <li class="list-inline-item ms-1 me-1 hdr-home-icon">
+            <a class="d-flex align-items-center position-relative home-icon" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }} home">
+              <svg height="22" width="22" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="m498.147 222.58-57.298-57.298v-150.282c0-8.284-6.716-15-15-15h-64.267c-8.284 0-15 6.716-15 15v56.017l-57.174-57.174c-8.926-8.927-20.794-13.843-33.418-13.843-12.625 0-24.494 4.916-33.42 13.843l-208.738 208.739c-18.428 18.427-18.428 48.411 0 66.838 8.927 8.927 20.795 13.843 33.419 13.843 2.645 0 5.253-.229 7.812-.651v154.223c0 30.419 24.748 55.166 55.167 55.166h97.561c8.284 0 15-6.716 15-15v-113.534h66.4v113.533c0 8.284 6.716 15 15 15h97.56c30.419 0 55.166-24.747 55.166-55.166v-154.223c2.558.423 5.165.651 7.81.651h.003c12.622 0 24.49-4.916 33.419-13.844 8.926-8.926 13.842-20.794 13.843-33.418-.002-12.624-4.918-24.493-13.845-33.42zm-121.564-192.58h34.267v105.283l-34.267-34.268zm25.167 452h-82.56v-113.533c0-8.284-6.716-15-15-15h-96.4c-8.284 0-15 6.716-15 15v113.533h-82.561c-13.877 0-25.167-11.289-25.167-25.166v-171.809l170.928-170.924 170.926 170.926v171.808c0 13.876-11.289 25.165-25.166 25.165zm75.186-213.795c-3.263 3.262-7.598 5.058-12.208 5.058-4.609-.001-8.944-1.796-12.204-5.055 0 0-.002-.002-.004-.004l-185.923-185.923c-5.856-5.859-15.354-5.857-21.213 0l-185.925 185.922-.005.005c-3.26 3.26-7.593 5.055-12.203 5.055s-8.945-1.795-12.206-5.056c-6.73-6.73-6.73-17.682 0-24.412l208.738-208.739c3.26-3.26 7.596-5.056 12.207-5.056 4.61 0 8.945 1.796 12.205 5.056l82.781 82.78 125.958 125.957c6.731 6.73 6.731 17.683.002 24.412z"></path></svg>
+            </a>
+          </li>
+
+          {%- comment -%} Search — Shopify predictive-search modal {%- endcomment -%}
+          <li class="list-inline-item ms-1 me-1">
+            <details-modal class="header__search">
+              <details>
+                <summary
+                  class="header__icon header__icon--search header__icon--summary search-icon d-flex align-items-center modal__toggle"
+                  aria-haspopup="dialog"
+                  aria-label="{{ 'general.search.search' | t }}"
+                >
+                  <span class="d-inline-flex">
+                    <svg class="modal__toggle-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.902 511.902" width="22" height="22" aria-hidden="true" focusable="false"><path d="M506.806,481.731,368.551,343.474c-.008-.008-.008-.02,0-.027,29.594-34.903,46.791-78.628,48.903-124.34C423.403,95.262,324.852-4.427,200.948.152,91.809,4.283,4.283,91.809.152,200.948-4.426,324.853,95.264,423.404,219.11,417.451c45.71-2.114,89.432-19.31,124.335-48.902.008-.007.02-.007.028,0l138.258,138.257c6.978,6.87,18.205,6.783,25.075-.195C513.601,499.709,513.601,488.632,506.806,481.731ZM39.969,249.076c-13.611-60.757,4.168-120.719,46.279-162.829s102.071-59.89,162.83-46.278c57.484,12.882,115.769,71.162,128.652,128.64,13.619,60.764-4.162,120.733-46.275,162.846s-102.085,59.894-162.849,46.273C111.128,364.844,52.851,306.555,39.969,249.076Z"></path></svg>
+                    <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+                      <use href="#icon-close">
+                    </svg>
+                  </span>
+                </summary>
+                <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+                  <div class="modal-overlay"></div>
+                  <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+                    {%- if settings.predictive_search_enabled -%}
+                      <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                    {%- else -%}
+                      <search-form class="search-modal__form">
+                    {%- endif -%}
+                        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                          <div class="field">
+                            <input
+                              class="search__input field__input"
+                              id="Search-In-Modal"
+                              type="search"
+                              name="q"
+                              value="{{ search.terms | escape }}"
+                              placeholder="{{ 'general.search.search' | t }}"
+                              {%- if settings.predictive_search_enabled -%}
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-owns="predictive-search-results"
+                                aria-controls="predictive-search-results"
+                                aria-haspopup="listbox"
+                                aria-autocomplete="list"
+                                autocorrect="off"
+                                autocomplete="off"
+                                autocapitalize="off"
+                                spellcheck="false"
+                              {%- endif -%}
+                            >
+                            <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                            <input type="hidden" name="options[prefix]" value="last">
+                            <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
+                              <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                                <use xlink:href="#icon-reset">
+                              </svg>
+                            </button>
+                            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                              <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                                <use href="#icon-search">
+                              </svg>
+                            </button>
+                          </div>
+
+                          {%- if settings.predictive_search_enabled -%}
+                            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                              <div class="predictive-search__loading-state">
+                                <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                                </svg>
+                              </div>
+                            </div>
+
+                            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                          {%- endif -%}
+                        </form>
+                      {%- if settings.predictive_search_enabled -%}
+                        </predictive-search>
+                      {%- else -%}
+                        </search-form>
+                      {%- endif -%}
+                    <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                      <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                        <use href="#icon-close">
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </details>
+            </details-modal>
+          </li>
+
+          {%- comment -%} Cart — opened by cart-drawer.js; inner markup kept in sync by sections/cart-icon-bubble.liquid {%- endcomment -%}
+          <li class="list-inline-item ms-1 me-2 pe-1">
+            <a
+              href="{{ routes.cart_url }}"
+              class="d-flex align-items-center position-relative cartbar"
+              id="cart-icon-bubble"
+              aria-label="{{ 'templates.cart.cart' | t }}"
+            >
+              <svg class="icon-parcel" xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 19.241 24.42" aria-hidden="true" focusable="false">
+                <g transform="translate(-14.372 -1)">
+                  <path d="M28.573,7.216l-.155-2.091a4.446,4.446,0,0,0-8.869,0l-.155,2.091H17.166a1.767,1.767,0,0,0-1.743,1.627l-1.046,14.7a1.731,1.731,0,0,0,.465,1.317,1.775,1.775,0,0,0,1.278.562H31.865a1.7,1.7,0,0,0,1.278-.562,1.731,1.731,0,0,0,.465-1.317L32.562,8.979a1.881,1.881,0,0,0-1.878-1.743H28.573ZM20.71,5.2a3.282,3.282,0,0,1,6.546,0l.136,2.014H20.555ZM31.4,9.056l1.046,14.563a.576.576,0,0,1-.155.445.622.622,0,0,1-.426.194H16.121a.6.6,0,0,1-.581-.639l1.046-14.7a.575.575,0,0,1,.581-.542h2.15L19.2,9.928a.572.572,0,0,0,.542.62h.039A.575.575,0,0,0,20.362,10l.116-1.627h7.01L27.6,10a.582.582,0,0,0,1.162-.077L28.65,8.378h2.033A.734.734,0,0,1,31.4,9.056Z"></path>
+                </g>
+              </svg>
+              <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+              {%- if cart != empty -%}
+                <div class="cart-count-bubble">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              {%- endif -%}
+            </a>
+          </li>
+
+          {%- comment -%} Account {%- endcomment -%}
+          {%- if shop.customer_accounts_enabled -%}
+            <li class="list-inline-item ms-1" id="user-details">
+              {%- if customer -%}
+                <div class="dropdown">
+                  <a
+                    class="profileiconafterlogin btn dropdown-toggle p-0"
+                    role="button"
+                    id="profiledropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-label="{{ 'customer.account_fallback' | t }}"
+                  >
+                    {%- render 'store-header-icon', name: 'account' -%}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end user-options" aria-labelledby="profiledropdownMenuLink">
+                    <ul class="p-0 list-unstyled mb-0">
+                      <li class="namedisplay d-block text-center px-2">
+                        <div>
+                          <p class="pt-1 fw-bold mb-0 textwrap-profile-details">{{ customer.name | default: customer.first_name | default: 'My account' }}</p>
+                          <p class="text-danger textwrap-profile-details mb-0">{{ customer.email }}</p>
+                        </div>
+                      </li>
+                      <li class="d-block red-top-border">
+                        <a class="dropdown-item py-2" href="{{ routes.account_url }}">
+                          <span class="me-2 d-inline-block accSet accSettingWeb">{%- render 'store-header-icon', name: 'settings' -%}</span>
+                          <span>{{ 'customer.account.title' | t | default: 'My Account' }}</span>
+                        </a>
+                      </li>
+                      {%- if section.settings.support_url != blank -%}
+                        <li class="d-block red-top-border">
+                          <a class="dropdown-item py-2" href="{{ section.settings.support_url }}">
+                            <span class="me-2 d-inline-block">{%- render 'store-header-icon', name: 'support' -%}</span>
+                            <span>Help &amp; Support</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      <li class="d-block red-top-border">
+                        <a class="dropdown-item py-2" href="{{ routes.account_logout_url }}">
+                          <span class="me-2 d-inline-block">{%- render 'store-header-icon', name: 'signout' -%}</span>
+                          <span>{{ 'customer.log_out' | t | default: 'Sign Out' }}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              {%- else -%}
+                <a
+                  class="profileiconafterlogin d-flex align-items-center p-0"
+                  href="{{ routes.account_login_url }}"
+                  aria-label="{{ 'customer.log_in' | t }}"
+                >
+                  {%- render 'store-header-icon', name: 'account' -%}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+
+          {%- comment -%} App blocks (kept from Dawn) {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                <li class="list-inline-item ms-1">{% render block %}</li>
+            {%- endcase -%}
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.menu != blank -%}
+          <button
+            class="navbar-toggler d-none d-lg-inline-flex align-items-center border-0 p-1 ms-3 collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main_nav"
+            aria-controls="main_nav"
+            aria-expanded="false"
+            aria-label="{{ 'sections.header.menu' | t }}"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" aria-hidden="true" focusable="false">
+              <g transform="translate(215.381 -11.085)">
+                <g transform="translate(-215.381 1.085)">
+                  <rect width="20" height="2" rx="1" transform="translate(0 10)" fill="#000"></rect>
+                  <rect width="16" height="2" rx="1" transform="translate(5 17)" fill="#000"></rect>
+                  <rect width="20" height="2" rx="1" transform="translate(0 24)" fill="#000"></rect>
+                </g>
+              </g>
+            </svg>
+          </button>
+        {%- endif -%}
+      </div>
+    </div>
+  </nav>
+
+  {%- comment -%} ---------- mega menu, built from the header linked menu ---------- {%- endcomment -%}
+  {%- if section.settings.menu != blank -%}
+    <div class="navbar-collapse position-absolute collapse" id="main_nav">
+      <div class="container">
+        <div class="w-100">
+          <div class="row my-3">
+            {%- for link in section.settings.menu.links -%}
+              <div class="ps-lg-0 col-lg-3 col-6 mb-3 mb-lg-0">
+                <div class="list-group list-group-flush dropdown">
+                  <a href="{{ link.url }}" class="mb-0 border-pink fw-semibold text-decoration-none">
+                    {{ link.title | escape }}
+                  </a>
+                  {%- if link.links != blank -%}
+                    <a class="dropdown-toggle d-lg-none d-block position-absolute" style="width:20px;right:0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                    <div class="dropdown-menu">
+                      {%- for childlink in link.links -%}
+                        <a href="{{ childlink.url }}" class="dropdown-item list-unstyled py-1 font-15">{{ childlink.title | escape }}</a>
+                        {%- for grandchildlink in childlink.links -%}
+                          <a href="{{ grandchildlink.url }}" class="dropdown-item list-unstyled py-1 ps-3 font-14">{{ grandchildlink.title | escape }}</a>
+                        {%- endfor -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</header>
