@@ -101,8 +101,8 @@
         "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 24,
+        "padding_bottom": 12
       }
     },
     "1682668273153f1edb": {
