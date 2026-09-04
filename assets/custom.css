@@ -899,3 +899,38 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
     display: block !important;
   }
 }
+
+/* ===================================================================
+   Breadcrumb bar — consistent spacing and alignment
+   =================================================================== */
+.main-breadcrumbs {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.main-breadcrumbs .breadcrumb {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.main-breadcrumbs .breadcrumb .url {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.main-breadcrumbs .breadcrumb .fa-chevron-right {
+  font-size: 10px;
+  opacity: 0.8;
+  margin: 0;
+}
+.main-breadcrumbs .breadcrumb a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+.main-breadcrumbs .breadcrumb > a:first-child .fa-home {
+  font-size: 15px;
+}

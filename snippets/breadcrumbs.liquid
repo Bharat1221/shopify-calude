@@ -22,26 +22,18 @@
   
 
   {% elsif template contains 'product' %}
-{% comment %}
-    {% if collection.url %}
 
+    {%- assign breadcrumb_collection = collection | default: product.collections.first -%}
+    <span class="url">
       <i class="fa fa-chevron-right"></i>
-
-      {{ collection.title | link_to: collection.url }}
-
-    {% endif %}
-{% endcomment %}    
-
-   <i class="fa fa-chevron-right"></i>
-   {% if request.path contains "rudraksha" %}
-      <span class="url"><a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i>  {{ product.title }}</span>  
-     {% else %}
-      {% if product.collections[0].title == "Online Puja" %}
-      <span class="url"><a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i> <a href="{{ product.collections[1].url }}" class="text-white">{{ product.collections[1].title }}</a> <i class="fa fa-chevron-right"></i> {{ product.title }}</span>  
-     {% else %}
-    <span class="url"><a href="{{ product.collections[1].url }}" class="text-white">{{ product.collections[1].title }}</a> <i class="fa fa-chevron-right"></i> <a href="{{ product.collections[0].url }}" class="text-white">{{ product.collections[0].title }}</a> <i class="fa fa-chevron-right"></i> {{ product.title }}</span>
-      {% endif %}
-    {% endif %}
+      <a href="{{ routes.collections_url }}" class="text-white">Collections</a>
+      {%- if breadcrumb_collection and breadcrumb_collection.handle -%}
+        <i class="fa fa-chevron-right"></i>
+        <a href="{{ breadcrumb_collection.url }}" class="text-white">{{ breadcrumb_collection.title }}</a>
+      {%- endif -%}
+      <i class="fa fa-chevron-right"></i>
+      <span>{{ product.title }}</span>
+    </span>
 
 
 
