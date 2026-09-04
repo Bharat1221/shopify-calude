@@ -95,8 +95,8 @@
 
 .card__media {
   margin: var(--image-padding);
-  width: calc(100% - 2 * var(--image-padding));
-  height: calc(100% - 2 * var(--image-padding));
+  /* width: calc(100% - 2 * var(--image-padding));
+  height: calc(100% - 2 * var(--image-padding)); */
 }
 
 .card--standard .card__media {
