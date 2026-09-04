@@ -857,6 +857,7 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
 
 /* Product description relocated to just above "You may also like" */
 .product__description--before-related {
-  margin-top: 3rem;
-  margin-bottom: 4rem;
+  /* margin-top: 3rem; */
+  margin-bottom: 2rem;
+  padding: 0;
 }
