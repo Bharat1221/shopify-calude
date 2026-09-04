@@ -861,3 +861,41 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
   margin-bottom: 2rem;
   padding: 0;
 }
+
+/* ===================================================================
+   Image banner with BOTH images set (.banner--dual):
+   - Desktop: show ONLY the first image, at "Small" height
+   - Mobile:  show ONLY the second image, at "Medium" height
+   Never both at once (no side-by-side, no stacking).
+   Single-image banners are unaffected.
+   =================================================================== */
+.banner--dual .banner__media--dual-first,
+.banner--dual .banner__media--dual-second {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .banner--dual .banner__media--dual-second {
+    display: none !important;
+  }
+  .banner--dual .banner__media--dual-first {
+    display: block !important;
+  }
+  /* Force "Small" banner height on desktop regardless of the section setting */
+  .banner--dual.banner--small:not(.banner--adapt),
+  .banner--dual.banner--medium:not(.banner--adapt),
+  .banner--dual.banner--large:not(.banner--adapt) {
+    min-height: 42rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .banner--dual .banner__media--dual-first {
+    display: none !important;
+  }
+  .banner--dual .banner__media--dual-second {
+    display: block !important;
+  }
+}
