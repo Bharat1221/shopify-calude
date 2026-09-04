@@ -2,18 +2,21 @@
    Anytime Astro — Store Header
    Pairs with snippets/store-header.liquid.
 
-   Everything is namespaced .sh-* on purpose: the theme already ships
-   assets/anytimemenu.css which hard-styles #main_nav, .dropdown-menu,
-   .dropdown-toggle, .user-options and .anytime-logo-* with !important
-   rules meant for the OLD header. None of those hooks are reused here.
+   IMPORTANT — units:
+   layout/theme.liquid sets  html { font-size: calc(var(--font-body-scale) * 62.5%) }
+   so 1rem is roughly 11px on this store, NOT 16px. Every size below is in
+   px on purpose; using rem here renders the header ~4x too small.
 
-   Bootstrap 5 is loaded globally in layout/theme.liquid (Collapse +
-   Dropdown JS). Only custom classes are styled below.
-   Brand accent: #ee4e5e
+   Naming: everything is namespaced .sh-* because assets/anytimemenu.css
+   hard-styles #main_nav, .dropdown-menu, .dropdown-toggle, .user-options
+   and .anytime-logo-* with !important rules meant for the OLD header.
    ===================================================================== */
 
 :root {
   --sh-pink: #ee4e5e;
+  --sh-red: #cf3544;
+  --sh-red-dark: #b12b38;
+  --sh-yellow: #ffd84d;
   --sh-pink-soft: #fff5f6;
   --sh-ink: #1b1b1b;
   --sh-text: #333;
@@ -22,12 +25,12 @@
 }
 
 /* ------------------------------------------------- Dawn wrapper reset */
-/* Dawn's .header-wrapper adds a pink shadow; .header is a 3-col grid.
-   Neither is wanted around the custom navbar. */
-.section-header .header-wrapper:has(.sh-header),
+/* The header section's custom CSS paints .gradient dark red below 991px
+   and Dawn's .header-wrapper adds a pink shadow — neither is wanted. */
 .header-wrapper.sh-wrapper {
+  background-color: #fff !important;
+  background-image: none !important;
   box-shadow: none;
-  background-color: #fff;
 }
 
 .sh-header {
@@ -35,50 +38,58 @@
   position: relative;
   width: 100%;
   background: #fff;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+  border-bottom: 1px solid #efefef;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
   font-family: var(--sh-font);
 }
-
 .sh-header *,
 .sh-header *::before,
 .sh-header *::after { box-sizing: border-box; }
 
-.sh-nav { padding: .5rem 0; }
+.sh-nav { padding: 8px 0; }
+.sh-header .container { padding-left: 16px; padding-right: 16px; }
 .sh-nav__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 56px;
+  gap: 16px;
+  min-height: 60px;
 }
 
 /* --------------------------------------------------------- left side */
-.sh-left { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+.sh-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
 
 .sh-logo {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 10px;
   text-decoration: none !important;
   min-width: 0;
 }
-.sh-logo__img { width: 53px; height: 53px; object-fit: contain; flex: 0 0 auto; }
+.sh-logo__img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  display: block;
+}
 .sh-logo__text { display: block; min-width: 0; }
 .sh-logo__name {
   display: block;
-  font-size: 1.15rem;
+  font-size: 20px;
   line-height: 1.15;
   letter-spacing: .2px;
-  font-weight: 600;
+  font-weight: 700;
   color: #111 !important;
   white-space: nowrap;
 }
 .sh-logo__sub {
   display: block;
-  font-size: .68rem;
+  margin-top: 2px;
+  font-size: 11px;
   line-height: 1.2;
   letter-spacing: .2px;
-  color: #5b5b5b !important;
+  color: #6a6a6a !important;
   white-space: nowrap;
 }
 
@@ -86,7 +97,7 @@
 .sh-icons {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -99,6 +110,7 @@
   justify-content: center;
   position: relative;
   padding: 0;
+  margin: 0;
   border: 0;
   background: none;
   cursor: pointer;
@@ -115,7 +127,7 @@
 .sh-cart { position: relative; }
 .sh-cart-bubble {
   position: absolute;
-  top: -6px;
+  top: -7px;
   right: -9px;
   min-width: 17px;
   height: 17px;
@@ -124,14 +136,14 @@
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   color: #fff;
   background: var(--sh-pink);
   border-radius: 50px;
 }
 
-/* search — Shopify <details-modal> needs details/summary, strip the marker */
+/* search — Shopify <details-modal> needs details/summary; strip the marker */
 .sh-search { display: inline-flex; list-style: none; }
 .sh-search > details { position: static; }
 .sh-search > details > summary {
@@ -147,18 +159,38 @@
 .sh-search > details > summary::marker { content: ""; }
 .sh-search .modal__toggle-close { display: none; }
 
+/* burger: hamburger swaps to an X while the mega menu is open */
+.sh-burger__close { display: none; }
+.sh-burger[aria-expanded="true"] .sh-burger__open { display: none; }
+.sh-burger[aria-expanded="true"] .sh-burger__close { display: block; }
+
 /* ---------------------------------------------------- profile menu */
 .sh-user { position: relative; display: inline-flex; }
-.sh-user > summary { list-style: none; }
+.sh-user > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+}
 .sh-user > summary::-webkit-details-marker { display: none; }
 .sh-user > summary::marker { content: ""; }
+.sh-user__caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--sh-ink);
+  transition: transform .15s ease;
+}
+.sh-user[open] .sh-user__caret { transform: rotate(180deg); }
 
 .sh-header .sh-user-menu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 12px);
   right: 0;
   left: auto;
-  min-width: 240px;
+  min-width: 244px;
   padding: 0;
   background: #fff;
   border: 0;
@@ -168,7 +200,7 @@
   z-index: 1031;
 }
 .sh-user-menu__list { list-style: none; margin: 0; padding: 0; }
-.sh-user-menu__head { padding: 14px 12px 12px; text-align: center; }
+.sh-user-menu__head { padding: 16px 14px 13px; text-align: center; }
 .sh-user-menu__name {
   margin: 0;
   font-size: 15px;
@@ -176,13 +208,13 @@
   color: #111;
 }
 .sh-user-menu__mail {
-  margin: 0;
+  margin: 2px 0 0;
   font-size: 13px;
   color: var(--sh-pink);
 }
 .sh-user-menu__name,
 .sh-user-menu__mail {
-  max-width: 200px;
+  max-width: 210px;
   margin-inline: auto;
   white-space: nowrap;
   overflow: hidden;
@@ -191,9 +223,9 @@
 .sh-user-menu__item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 14px;
-  font-size: .92rem;
+  gap: 9px;
+  padding: 12px 15px;
+  font-size: 14px;
   color: var(--sh-text) !important;
   text-decoration: none !important;
   border-top: 1px solid var(--sh-border);
@@ -205,25 +237,24 @@
 .sh-user-menu__item svg { flex: 0 0 auto; vertical-align: middle; }
 
 /* =====================================================================
-   MEGA MENU
+   MEGA MENU — full-width red panel
    ===================================================================== */
 .sh-mega {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background: #fff;
-  border-top: 1px solid #f1f1f1;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, .10);
+  background: var(--sh-red);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .18);
   z-index: 1031;
-  max-height: calc(100vh - 90px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
 }
 
 .sh-mega__cols {
-  padding: 22px 0 26px;
+  padding: 26px 0 34px;
   column-count: 4;
-  column-gap: 32px;
+  column-gap: 38px;
 }
 
 .sh-group {
@@ -231,53 +262,53 @@
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   position: relative;
-  margin-bottom: 26px;
+  margin-bottom: 30px;
 }
 
 .sh-group__title {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid var(--sh-pink);
-  font-size: .98rem;
+  padding-bottom: 9px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .55);
+  font-size: 16px;
   font-weight: 600;
-  color: #2a2a2a !important;
+  color: #fff !important;
   text-decoration: none !important;
 }
-.sh-group__title:hover { color: var(--sh-pink) !important; }
+.sh-group__title:hover { color: #ffe9ec !important; }
 
 .sh-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 18px;
-  min-width: 34px;
-  padding: 0 6px;
+  height: 20px;
+  min-width: 38px;
+  padding: 0 8px;
   border-radius: 4px;
-  background: var(--sh-pink);
-  color: #fff;
+  background: var(--sh-yellow);
+  color: #3a2b00;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
 }
 
 .sh-group__links { display: block; }
 .sh-link {
   display: block;
-  padding: .3rem 0;
-  font-size: .95rem;
-  color: #555 !important;
+  padding: 5px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff !important;
   text-decoration: none !important;
   background: transparent;
 }
 .sh-link:hover {
-  color: var(--sh-pink) !important;
-  padding-left: 4px;
-  transition: .15s;
+  color: #ffe9ec !important;
+  text-decoration: underline !important;
 }
-.sh-link--sub { padding-left: 12px; font-size: .9rem; }
+.sh-link--sub { padding-left: 14px; font-size: 14px; opacity: .9; }
 
 /* chevron that collapses a group on mobile */
 .sh-group__toggle {
@@ -285,8 +316,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: 0;
   background: none;
@@ -295,55 +326,55 @@
 .sh-group__toggle::after {
   content: "";
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #888;
-  border-bottom: 2px solid #888;
+  top: 7px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   transform: rotate(45deg);
   transform-origin: center center;
   transition: transform .2s;
 }
 .sh-group__toggle[aria-expanded="true"]::after {
-  top: 10px;
+  top: 11px;
   transform: rotate(-135deg);
   transform-origin: center center;
 }
 
 /* ------------------------------------------------------- responsive */
+@media (min-width: 992px) {
+  /* desktop: every group's links stay open regardless of .collapse */
+  .sh-group__links.collapse { display: block !important; height: auto !important; }
+  .sh-burger--mobile { display: none !important; }
+}
+
 @media (max-width: 1199.98px) {
   .sh-mega__cols { column-count: 3; }
 }
 
 @media (max-width: 991.98px) {
-  .sh-mega__cols { column-count: 1; column-gap: 0; padding: 16px 0 20px; }
-  .sh-group { margin-bottom: 14px; }
-  .sh-group__toggle { display: block; }
-  /* groups start collapsed on mobile; Bootstrap toggles .show */
-  .sh-group__links.collapse:not(.show) { display: none; }
-  .sh-mega { max-height: calc(100vh - 76px); }
-}
-
-@media (min-width: 992px) {
-  /* desktop: every group's links are always open regardless of .collapse */
-  .sh-group__links.collapse { display: block !important; height: auto !important; }
-  .sh-burger--mobile { display: none !important; }
-}
-
-@media (max-width: 991.98px) {
   .sh-burger--desktop { display: none !important; }
+  .sh-mega__cols { column-count: 1; column-gap: 0; padding: 18px 0 24px; }
+  .sh-group { margin-bottom: 16px; }
+  .sh-group__toggle { display: block; }
+  .sh-group__links.collapse:not(.show) { display: none; }
+  .sh-mega { max-height: calc(100vh - 84px); }
+  .sh-nav__inner { min-height: 54px; }
 }
 
 @media (max-width: 575.98px) {
-  .sh-logo__img { width: 42px; height: 42px; }
-  .sh-logo__name { font-size: 1rem; }
-  .sh-logo__sub { font-size: .6rem; }
-  .sh-icons { gap: 10px; }
-  .sh-nav__inner { min-height: 48px; }
+  .sh-logo__img { width: 40px; height: 40px; }
+  .sh-logo__name { font-size: 17px; }
+  .sh-logo__sub { font-size: 10px; }
+  .sh-icons { gap: 13px; }
+  .sh-nav__inner { min-height: 50px; }
+  .sh-header .container { padding-left: 12px; padding-right: 12px; }
 }
 
 @media (max-width: 400px) {
   .sh-logo__sub { display: none; }
-  .sh-icons { gap: 8px; }
+  .sh-logo__name { font-size: 15px; }
+  .sh-logo__img { width: 34px; height: 34px; }
+  .sh-icons { gap: 10px; }
 }

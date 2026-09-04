@@ -6,13 +6,37 @@
   - Search  -> Shopify predictive-search modal (<details-modal> / details-modal.js)
   - Cart    -> #cart-icon-bubble, opened by cart-drawer.js; count from cart.item_count
   - Account -> routes.account_url / account_login_url / account_logout_url
-  - Menu    -> section.settings.menu (Navigation), flowed into 4 balanced columns
+  - Menu    -> section.settings.menu, falling back to linklists['main-menu'],
+               flowed into 4 balanced columns
 
   Menu tip: end a top-level menu title with " *" to show the pink "New" pill.
 
   All custom classes are namespaced .sh-* so the legacy assets/anytimemenu.css
   rules for #main_nav / .dropdown-menu / .anytime-logo-* cannot bleed in.
 {% endcomment %}
+
+{%- liquid
+  comment
+    Brand + logo. settings.logo is an .svg and Shopify's image_url filter
+    cannot process SVG uploads, so the logo falls back to the artwork URL
+    used in Extra_Pages/consultAstroSection.html.
+  endcomment
+  assign sh_brand = section.settings.header_brand | default: 'Anytime Astro'
+  assign sh_sub = section.settings.header_subtext | default: 'Consult Online Astrologers Anytime'
+  assign sh_logo_src = 'https://cdn.anytimeastro.com/anytimeastro/store/web/images/anytime-astro-logo-icon.svg'
+  if section.settings.header_logo_url != blank
+    assign sh_logo_src = section.settings.header_logo_url
+  endif
+
+  comment
+    Fall back to the store's main menu when the header section has no menu
+    picked (Header -> Menu in the theme editor).
+  endcomment
+  assign sh_menu = section.settings.menu
+  if sh_menu == blank
+    assign sh_menu = linklists['main-menu']
+  endif
+-%}
 
 <div class="sh-header">
   <nav class="sh-nav">
@@ -21,7 +45,7 @@
 
         {%- comment -%} ---------------- left: burger + logo ---------------- {%- endcomment -%}
         <div class="sh-left">
-          {%- if section.settings.menu != blank -%}
+          {%- if sh_menu != blank -%}
             <button
               class="sh-icon sh-burger sh-burger--mobile"
               type="button"
@@ -31,25 +55,24 @@
               aria-expanded="false"
               aria-label="{{ 'sections.header.menu' | t }}"
             >
-              {%- render 'store-header-icon', name: 'burger' -%}
+              <span class="sh-burger__open">{%- render 'store-header-icon', name: 'burger' -%}</span>
+              <span class="sh-burger__close">{%- render 'store-header-icon', name: 'close' -%}</span>
             </button>
           {%- endif -%}
 
           <a href="{{ routes.root_url }}" class="sh-logo">
-            {%- if settings.logo != blank -%}
-              {%- assign sh_logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {%- if sh_logo_src != blank -%}
               <img
-                src="{{ settings.logo | image_url: width: 160 }}"
+                src="{{ sh_logo_src }}"
                 class="sh-logo__img"
-                alt="{{ sh_logo_alt }}"
-                width="53"
-                height="53"
+                alt="{{ sh_brand | escape }}"
+                width="46"
+                height="46"
                 loading="eager"
               >
             {%- endif -%}
             <span class="sh-logo__text">
-              <span class="sh-logo__name">{{ shop.name }}</span>
-              {%- assign sh_sub = section.settings.header_subtext | default: 'Consult Online Astrologers Anytime' -%}
+              <span class="sh-logo__name">{{ sh_brand }}</span>
               {%- if sh_sub != blank -%}
                 <span class="sh-logo__sub">{{ sh_sub }}</span>
               {%- endif -%}
@@ -181,6 +204,7 @@
                 <details class="sh-user" data-sh-user>
                   <summary class="sh-icon" aria-label="{{ 'customer.account_fallback' | t }}">
                     {%- render 'store-header-icon', name: 'account' -%}
+                    <span class="sh-user__caret" aria-hidden="true"></span>
                   </summary>
                   <div class="sh-user-menu">
                     <ul class="sh-user-menu__list">
@@ -228,10 +252,10 @@
           {%- endfor -%}
 
           {%- comment -%} Desktop mega-menu toggle {%- endcomment -%}
-          {%- if section.settings.menu != blank -%}
+          {%- if sh_menu != blank -%}
             <li class="sh-burger--desktop">
               <button
-                class="sh-icon"
+                class="sh-icon sh-burger"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#StoreMegaMenu"
@@ -239,7 +263,8 @@
                 aria-expanded="false"
                 aria-label="{{ 'sections.header.menu' | t }}"
               >
-                {%- render 'store-header-icon', name: 'burger' -%}
+                <span class="sh-burger__open">{%- render 'store-header-icon', name: 'burger' -%}</span>
+                <span class="sh-burger__close">{%- render 'store-header-icon', name: 'close' -%}</span>
               </button>
             </li>
           {%- endif -%}
@@ -249,11 +274,11 @@
   </nav>
 
   {%- comment -%} ---------------- mega menu ---------------- {%- endcomment -%}
-  {%- if section.settings.menu != blank -%}
+  {%- if sh_menu != blank -%}
     <div class="collapse sh-mega" id="StoreMegaMenu">
       <div class="container">
         <div class="sh-mega__cols">
-          {%- for link in section.settings.menu.links -%}
+          {%- for link in sh_menu.links -%}
             {%- liquid
               assign sh_title = link.title
               assign sh_is_new = false
