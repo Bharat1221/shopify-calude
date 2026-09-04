@@ -448,8 +448,11 @@ x.addListener(myFunction)
     
   }
 }
-document.querySelector(".header__icon--search").addEventListener("click",()=>{document.querySelector(".bacurr-cur-block").style.zIndex="2 ";})
-document.querySelector(".search-modal__close-button").addEventListener("click",()=>{document.querySelector(".bacurr-cur-block").style.zIndex="3 ";})
+function shSetCurrBlockZ(z){var b=document.querySelector(".bacurr-cur-block"); if(b) b.style.zIndex=z;}
+var shSearchToggle=document.querySelector(".sh-search summary, .header__icon--search");
+if(shSearchToggle) shSearchToggle.addEventListener("click",function(){shSetCurrBlockZ("2");});
+var shSearchClose=document.querySelector(".search-modal__close-button");
+if(shSearchClose) shSearchClose.addEventListener("click",function(){shSetCurrBlockZ("3");});
   
 </script>
 

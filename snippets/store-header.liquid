@@ -1,0 +1,324 @@
+{% comment %}
+  Store header — matches Extra_Pages/consultAstroSection.html, wired to Shopify.
+
+  Bindings:
+  - Home    -> routes.root_url
+  - Search  -> Shopify predictive-search modal (<details-modal> / details-modal.js)
+  - Cart    -> #cart-icon-bubble, opened by cart-drawer.js; count from cart.item_count
+  - Account -> routes.account_url / account_login_url / account_logout_url
+  - Menu    -> section.settings.menu (Navigation), flowed into 4 balanced columns
+
+  Menu tip: end a top-level menu title with " *" to show the pink "New" pill.
+
+  All custom classes are namespaced .sh-* so the legacy assets/anytimemenu.css
+  rules for #main_nav / .dropdown-menu / .anytime-logo-* cannot bleed in.
+{% endcomment %}
+
+<div class="sh-header">
+  <nav class="sh-nav">
+    <div class="container">
+      <div class="sh-nav__inner">
+
+        {%- comment -%} ---------------- left: burger + logo ---------------- {%- endcomment -%}
+        <div class="sh-left">
+          {%- if section.settings.menu != blank -%}
+            <button
+              class="sh-icon sh-burger sh-burger--mobile"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#StoreMegaMenu"
+              aria-controls="StoreMegaMenu"
+              aria-expanded="false"
+              aria-label="{{ 'sections.header.menu' | t }}"
+            >
+              {%- render 'store-header-icon', name: 'burger' -%}
+            </button>
+          {%- endif -%}
+
+          <a href="{{ routes.root_url }}" class="sh-logo">
+            {%- if settings.logo != blank -%}
+              {%- assign sh_logo_alt = settings.logo.alt | default: shop.name | escape -%}
+              <img
+                src="{{ settings.logo | image_url: width: 160 }}"
+                class="sh-logo__img"
+                alt="{{ sh_logo_alt }}"
+                width="53"
+                height="53"
+                loading="eager"
+              >
+            {%- endif -%}
+            <span class="sh-logo__text">
+              <span class="sh-logo__name">{{ shop.name }}</span>
+              {%- assign sh_sub = section.settings.header_subtext | default: 'Consult Online Astrologers Anytime' -%}
+              {%- if sh_sub != blank -%}
+                <span class="sh-logo__sub">{{ sh_sub }}</span>
+              {%- endif -%}
+            </span>
+          </a>
+        </div>
+
+        {%- comment -%} ---------------- right: icon strip ---------------- {%- endcomment -%}
+        <ul class="sh-icons">
+
+          {%- comment -%} Home {%- endcomment -%}
+          <li>
+            <a class="sh-icon" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+              {%- render 'store-header-icon', name: 'home' -%}
+            </a>
+          </li>
+
+          {%- comment -%} Search — Shopify search / predictive search modal {%- endcomment -%}
+          <li>
+            <details-modal class="sh-search header__search">
+              <details>
+                <summary class="sh-icon modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+                  <span class="modal__toggle-open">{%- render 'store-header-icon', name: 'search' -%}</span>
+                  <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+                    <use href="#icon-close">
+                  </svg>
+                </summary>
+                <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+                  <div class="modal-overlay"></div>
+                  <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+                    {%- if settings.predictive_search_enabled -%}
+                      <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                    {%- else -%}
+                      <search-form class="search-modal__form">
+                    {%- endif -%}
+                        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                          <div class="field">
+                            <input
+                              class="search__input field__input"
+                              id="Search-In-Modal"
+                              type="search"
+                              name="q"
+                              value="{{ search.terms | escape }}"
+                              placeholder="{{ 'general.search.search' | t }}"
+                              {%- if settings.predictive_search_enabled -%}
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-owns="predictive-search-results"
+                                aria-controls="predictive-search-results"
+                                aria-haspopup="listbox"
+                                aria-autocomplete="list"
+                                autocorrect="off"
+                                autocomplete="off"
+                                autocapitalize="off"
+                                spellcheck="false"
+                              {%- endif -%}
+                            >
+                            <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                            <input type="hidden" name="options[prefix]" value="last">
+                            <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
+                              <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                                <use xlink:href="#icon-reset">
+                              </svg>
+                            </button>
+                            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                              <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                                <use href="#icon-search">
+                              </svg>
+                            </button>
+                          </div>
+
+                          {%- if settings.predictive_search_enabled -%}
+                            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                              <div class="predictive-search__loading-state">
+                                <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                                </svg>
+                              </div>
+                            </div>
+                            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                          {%- endif -%}
+                        </form>
+                      {%- if settings.predictive_search_enabled -%}
+                        </predictive-search>
+                      {%- else -%}
+                        </search-form>
+                      {%- endif -%}
+                    <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                      <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                        <use href="#icon-close">
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </details>
+            </details-modal>
+          </li>
+
+          {%- comment -%} Cart — cart-drawer.js binds #cart-icon-bubble {%- endcomment -%}
+          <li>
+            <a
+              href="{{ routes.cart_url }}"
+              id="cart-icon-bubble"
+              class="sh-icon sh-cart"
+              aria-label="{{ 'templates.cart.cart' | t }}"
+            >
+              {%- render 'store-header-icon', name: 'cart' -%}
+              <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+              {%- if cart != empty -%}
+                <span class="sh-cart-bubble">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </span>
+              {%- endif -%}
+            </a>
+          </li>
+
+          {%- comment -%} Account {%- endcomment -%}
+          {%- if shop.customer_accounts_enabled -%}
+            <li>
+              {%- if customer -%}
+                {%- comment -%}
+                  Plain <details> on purpose: the theme's inline JS force-opens
+                  every .dropdown-menu below 991px, so Bootstrap's dropdown
+                  cannot be used here.
+                {%- endcomment -%}
+                <details class="sh-user" data-sh-user>
+                  <summary class="sh-icon" aria-label="{{ 'customer.account_fallback' | t }}">
+                    {%- render 'store-header-icon', name: 'account' -%}
+                  </summary>
+                  <div class="sh-user-menu">
+                    <ul class="sh-user-menu__list">
+                      <li class="sh-user-menu__head">
+                        <p class="sh-user-menu__name">{{ customer.name | default: customer.first_name | default: shop.name }}</p>
+                        <p class="sh-user-menu__mail">{{ customer.email }}</p>
+                      </li>
+                      <li>
+                        <a class="sh-user-menu__item" href="{{ routes.account_url }}">
+                          {%- render 'store-header-icon', name: 'settings' -%}
+                          <span>{{ 'customer.account.title' | t }}</span>
+                        </a>
+                      </li>
+                      {%- if section.settings.support_url != blank -%}
+                        <li>
+                          <a class="sh-user-menu__item" href="{{ section.settings.support_url }}">
+                            {%- render 'store-header-icon', name: 'support' -%}
+                            <span>Help &amp; Support</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      <li>
+                        <a class="sh-user-menu__item" href="{{ routes.account_logout_url }}">
+                          {%- render 'store-header-icon', name: 'signout' -%}
+                          <span>{{ 'customer.log_out' | t }}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              {%- else -%}
+                <a class="sh-icon" href="{{ routes.account_login_url }}" aria-label="{{ 'customer.log_in' | t }}">
+                  {%- render 'store-header-icon', name: 'account' -%}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+
+          {%- comment -%} App blocks (wishlist etc.) {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                <li>{% render block %}</li>
+            {%- endcase -%}
+          {%- endfor -%}
+
+          {%- comment -%} Desktop mega-menu toggle {%- endcomment -%}
+          {%- if section.settings.menu != blank -%}
+            <li class="sh-burger--desktop">
+              <button
+                class="sh-icon"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#StoreMegaMenu"
+                aria-controls="StoreMegaMenu"
+                aria-expanded="false"
+                aria-label="{{ 'sections.header.menu' | t }}"
+              >
+                {%- render 'store-header-icon', name: 'burger' -%}
+              </button>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {%- comment -%} ---------------- mega menu ---------------- {%- endcomment -%}
+  {%- if section.settings.menu != blank -%}
+    <div class="collapse sh-mega" id="StoreMegaMenu">
+      <div class="container">
+        <div class="sh-mega__cols">
+          {%- for link in section.settings.menu.links -%}
+            {%- liquid
+              assign sh_title = link.title
+              assign sh_is_new = false
+              if sh_title contains ' *'
+                assign sh_title = sh_title | remove_last: ' *'
+                assign sh_is_new = true
+              endif
+            -%}
+            <div class="sh-group">
+              <a href="{{ link.url }}" class="sh-group__title">
+                <span>{{ sh_title | escape }}</span>
+                {%- if sh_is_new -%}<span class="sh-badge">New</span>{%- endif -%}
+              </a>
+              {%- if link.links != blank -%}
+                <button
+                  class="sh-group__toggle"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#ShGroup-{{ forloop.index }}"
+                  aria-controls="ShGroup-{{ forloop.index }}"
+                  aria-expanded="false"
+                  aria-label="{{ sh_title | escape }}"
+                ></button>
+                <div class="collapse sh-group__links" id="ShGroup-{{ forloop.index }}">
+                  {%- for childlink in link.links -%}
+                    <a href="{{ childlink.url }}" class="sh-link">{{ childlink.title | escape }}</a>
+                    {%- for grandchildlink in childlink.links -%}
+                      <a href="{{ grandchildlink.url }}" class="sh-link sh-link--sub">{{ grandchildlink.title | escape }}</a>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  // Close the profile <details> when clicking outside it or pressing Escape.
+  (function () {
+    document.addEventListener('click', function (event) {
+      document.querySelectorAll('details[data-sh-user][open]').forEach(function (el) {
+        if (!el.contains(event.target)) el.removeAttribute('open');
+      });
+    });
+    document.addEventListener('keyup', function (event) {
+      if (event.key !== 'Escape') return;
+      document.querySelectorAll('details[data-sh-user][open]').forEach(function (el) {
+        el.removeAttribute('open');
+      });
+    });
+
+    // Close the mega menu when clicking outside the header.
+    document.addEventListener('click', function (event) {
+      var mega = document.getElementById('StoreMegaMenu');
+      if (!mega || !mega.classList.contains('show')) return;
+      if (event.target.closest('.sh-header')) return;
+      if (window.bootstrap && window.bootstrap.Collapse) {
+        var inst = window.bootstrap.Collapse.getInstance(mega);
+        if (inst) { inst.hide(); return; }
+      }
+      mega.classList.remove('show');
+    });
+  })();
+</script>
