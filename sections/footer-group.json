@@ -1,1 +1,127 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"newsletter":{"type":"newsletter","disabled":true,"blocks":{"heading":{"type":"heading","settings":{"heading":"Subscribe to our emails","heading_size":"h1"}},"paragraph":{"type":"paragraph","settings":{"text":"<p>Be the first to know about new collections and exclusive offers.<\/p>"}},"email-form":{"type":"email_form","settings":{}}},"block_order":["heading","paragraph","email-form"],"settings":{"color_scheme":"accent-2","full_width":true,"padding_top":28,"padding_bottom":0}},"footer":{"type":"footer","blocks":{"b1e26dc1-10a7-4411-a818-6554b9683f20":{"type":"link_list","settings":{"heading":"Puja Categories","menu":"puja-footer"}},"91a82b28-87a5-4783-84c8-e02248dda247":{"type":"link_list","settings":{"heading":"Company","menu":"puja-company-menu"}},"f47efaa5-cb3b-4e16-8454-9811a35df651":{"type":"link_list","disabled":true,"settings":{"heading":"<strong>Support<\/strong>","menu":"get-advice-on"}},"5988435b-7e84-4cf3-a79e-15e2a17896af":{"type":"link_list","settings":{"heading":"Useful Links","menu":"puja-useful-links"}},"34997741-2ef3-4ac7-a375-a23dda7c580c":{"type":"text","settings":{"heading":"Get in Touch","subtext":"<h3>Innovana Astro Services Limited<\/h3><p>1- KHA -18, Jawahar Nagar,<br\/>Jaipur, Rajasthan, 302004 India<\/p><p> <a href=\"mailto:support@anytimeastro.com\">support@anytimeastro.com<\/a><\/p>"}}},"block_order":["b1e26dc1-10a7-4411-a818-6554b9683f20","91a82b28-87a5-4783-84c8-e02248dda247","f47efaa5-cb3b-4e16-8454-9811a35df651","5988435b-7e84-4cf3-a79e-15e2a17896af","34997741-2ef3-4ac7-a375-a23dda7c580c"],"settings":{"color_scheme":"accent-2","newsletter_enable":false,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":false,"margin_top":0,"padding_top":44,"padding_bottom":0}}},"order":["newsletter","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "custom_liquid_dhQbVK": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n \n  /* ── Reset scoped to footer ── */\n  .ata-footer,\n  .ata-footer * {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n  }\n \n  /* ══════════════════════════════════════════\n     MAIN FOOTER BODY\n  ══════════════════════════════════════════ */\n  .ata-footer {\n    background-color: #8b1a2a;\n    color: #ffffff;\n    font-family: 'Segoe UI', Arial, sans-serif;\n    font-size: 14px;\n    width: 100%;\n  }\n \n  .ata-footer__body {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 48px 24px 36px;\n  }\n \n  /* ── About block ── */\n  .ata-footer__about {\n    padding-bottom: 28px;\n    border-bottom: 1px solid rgba(255,255,255,0.2);\n    margin-bottom: 36px;\n  }\n \n  .ata-footer__about-title {\n    font-size: 16px;\n    font-weight: 700;\n    color: #ffffff;\n    margin-bottom: 12px;\n  }\n \n  .ata-footer__about-text {\n    font-size: 14px;\n    color: rgba(255,255,255,0.85);\n    line-height: 1.75;\n    max-width: 900px;\n  }\n \n  /* ── 4-column grid ── */\n  .ata-footer__cols {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 32px;\n    align-items: start;\n  }\n \n  /* ── Column heading ── */\n  .ata-footer__col-title {\n    font-size: 15px;\n    font-weight: 700;\n    color: #ffffff;\n    margin-bottom: 18px;\n    display: block;\n  }\n \n  /* ── Link list ── */\n  .ata-footer__list {\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n  }\n \n  .ata-footer__list li a {\n    color: rgba(255,255,255,0.80);\n    text-decoration: none;\n    font-size: 13.5px;\n    line-height: 1.4;\n    transition: color 0.2s ease;\n    display: inline-block;\n  }\n \n  .ata-footer__list li a:hover {\n    color: #f5c518;\n    text-decoration: underline;\n  }\n \n  /* ── Policy sub-heading ── */\n  .ata-footer__col-subtitle {\n    font-size: 15px;\n    font-weight: 700;\n    color: #ffffff;\n    margin: 24px 0 14px;\n    display: block;\n  }\n \n  /* ── App badges ── */\n  .ata-footer__apps {\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n    margin-bottom: 20px;\n  }\n \n  .ata-footer__apps a {\n    display: inline-block;\n    transition: opacity 0.2s;\n  }\n \n  .ata-footer__apps a:hover { opacity: 0.85; }\n \n  .ata-footer__apps img {\n    height: 44px;\n    width: auto;\n    display: block;\n  }\n \n  /* ── Social icons row ── */\n  .ata-footer__social {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 10px;\n    margin-top: 4px;\n  }\n \n  .ata-footer__social a {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    background: rgba(255,255,255,0.12);\n    transition: background 0.2s, transform 0.2s;\n    overflow: hidden;\n  }\n \n  .ata-footer__social a:hover {\n    background: rgba(255,255,255,0.28);\n    transform: translateY(-2px);\n  }\n \n  .ata-footer__social img {\n    width: 20px;\n    height: 20px;\n    object-fit: contain;\n    display: block;\n    filter: brightness(0) invert(1);  /* force white */\n  }\n \n  /* ══════════════════════════════════════════\n     COPYRIGHT BAR\n  ══════════════════════════════════════════ */\n  .ata-footer__copyright {\n    background-color: #5c0f1e;\n    text-align: center;\n    padding: 14px 24px;\n    font-size: 13px;\n    color: rgba(255,255,255,0.80);\n    letter-spacing: 0.2px;\n  }\n \n  /* ══════════════════════════════════════════\n     RESPONSIVE\n  ══════════════════════════════════════════ */\n \n  /* Tablet ≤ 900px → 2 columns */\n  @media (max-width: 900px) {\n    .ata-footer__cols {\n      grid-template-columns: repeat(2, 1fr);\n      gap: 28px;\n    }\n  }\n \n  /* Mobile ≤ 540px → 1 column */\n  @media (max-width: 540px) {\n    .ata-footer__body {\n      padding: 32px 16px 28px;\n    }\n \n    .ata-footer__cols {\n      grid-template-columns: 1fr;\n      gap: 28px;\n    }\n \n    .ata-footer__about {\n      margin-bottom: 28px;\n      padding-bottom: 20px;\n    }\n \n    .ata-footer__col-title,\n    .ata-footer__col-subtitle {\n      font-size: 14px;\n    }\n \n    .ata-footer__apps img {\n      height: 40px;\n    }\n  }\n</style>\n \n<!-- ══════════════════════════════════════════\n     FOOTER MARKUP\n══════════════════════════════════════════ -->\n<footer class=\"ata-footer\">\n \n  <div class=\"ata-footer__body\">\n \n    <!-- About -->\n    <div class=\"ata-footer__about\">\n      <p class=\"ata-footer__about-title\">About Anytime Astro</p>\n      <p class=\"ata-footer__about-text\">\n        Anytime Astro is the best astrology website for all types of online astrology consultations\n        with India's best astrologers. It is an excellent option for those seeking instant,\n        personalized, and empathetic astrology guidance related to marriage, career, relationships,\n        health and more through call or chat with experienced astrologers. You can explore your future\n        possibilities by connecting with our astrologers for accurate kundali predictions.\n      </p>\n    </div>\n \n    <!-- 4 columns -->\n    <div class=\"ata-footer__cols\">\n \n      <!-- Col 1: Buy Products -->\n      <div class=\"ata-footer__col\">\n        <span class=\"ata-footer__col-title\">Buy Products</span>\n        <ul class=\"ata-footer__list\">\n          <li><a href=\"https://www.anytimeastro.com/store/products/brclt/\" target=\"_blank\">Bracelet</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/rudksh/\" target=\"_blank\">Rudraksha Bead</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/gem/\" target=\"_blank\">Gemstone</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/yntr/\" target=\"_blank\">Yantra</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/kvch/\" target=\"_blank\">Kavach</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/combo/\" target=\"_blank\">Combo</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/crydt/\" target=\"_blank\">Crystal Dome Trees</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/frame/\" target=\"_blank\">Frame</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/products/pyramid/\" target=\"_blank\">Pyramids</a></li>\n        </ul>\n      </div>\n \n      <!-- Col 2: Get Advice On -->\n      <div class=\"ata-footer__col\">\n        <span class=\"ata-footer__col-title\">Get Advice On</span>\n        <ul class=\"ata-footer__list\">\n          <li><a href=\"https://www.anytimeastro.com/finance-and-wealth\" target=\"_blank\">Finance &amp; Business</a></li>\n          <li><a href=\"https://www.anytimeastro.com/psychic-reading\" target=\"_blank\">Psychic Reading</a></li>\n          <li><a href=\"https://www.anytimeastro.com/break-up-and-divorce\" target=\"_blank\">Break-Up &amp; Divorce</a></li>\n          <li><a href=\"https://www.anytimeastro.com/vedic-astrology\" target=\"_blank\">Vedic Astrology</a></li>\n          <li><a href=\"https://www.anytimeastro.com/kids-and-education\" target=\"_blank\">Kids &amp; Education</a></li>\n          <li><a href=\"https://www.anytimeastro.com/tarot-reading\" target=\"_blank\">Tarot Reading</a></li>\n          <li><a href=\"https://www.anytimeastro.com/marital-life\" target=\"_blank\">Marital Life</a></li>\n          <li><a href=\"https://www.anytimeastro.com/love-and-relationships\" target=\"_blank\">Love &amp; Relationships</a></li>\n          <li><a href=\"https://www.anytimeastro.com/career-and-business\" target=\"_blank\">Career &amp; Job</a></li>\n          <li><a href=\"https://www.anytimeastro.com/cheating-and-affairs\" target=\"_blank\">Cheating &amp; Affairs</a></li>\n          <li><a href=\"https://www.anytimeastro.com/numerology-reading\" target=\"_blank\">Numerology</a></li>\n          <li><a href=\"https://www.anytimeastro.com/horary-astrology\" target=\"_blank\">Horary Astrology</a></li>\n          <li><a href=\"https://www.anytimeastro.com/relationship-counseling\" target=\"_blank\">Relationship Counseling</a></li>\n        </ul>\n      </div>\n \n      <!-- Col 3: Useful Links + Policy -->\n      <div class=\"ata-footer__col\">\n        <span class=\"ata-footer__col-title\">Useful Links</span>\n        <ul class=\"ata-footer__list\">\n          <li><a href=\"https://www.anytimeastro.com/store/gemstones-buying-guide\" target=\"_blank\">Gemstones Buying Guide</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store/rudraksha-buying-guide\" target=\"_blank\">Rudraksha Buying Guide</a></li>\n          <li><a href=\"https://www.anytimeastro.com/about-us\" target=\"_blank\">About Us</a></li>\n          <li><a href=\"https://www.anytimeastro.com/contact-us\" target=\"_blank\">Contact Us</a></li>\n          <li><a href=\"https://www.anytimeastro.com/blog\" target=\"_blank\">Blog</a></li>\n          <li><a href=\"https://www.anytimeastro.com/faqs/?faqtype=store\" target=\"_blank\">FAQs</a></li>\n          <li><a href=\"https://www.anytimeastro.com/support\" target=\"_blank\">Support</a></li>\n        </ul>\n \n        <span class=\"ata-footer__col-subtitle\">Policy</span>\n        <ul class=\"ata-footer__list\">\n          <li><a href=\"https://www.anytimeastro.com/privacy-policy\" target=\"_blank\">Privacy Policy</a></li>\n          <li><a href=\"https://www.anytimeastro.com/terms-of-use\" target=\"_blank\">Terms Of Use</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store-return/\" target=\"_blank\">Return &amp; Refund Policy</a></li>\n          <li><a href=\"https://www.anytimeastro.com/store-shipping/\" target=\"_blank\">Shipping &amp; Delivery Policy</a></li>\n          <li><a href=\"https://www.anytimeastro.com/disclaimer\" target=\"_blank\">Disclaimer</a></li>\n          <li><a href=\"https://www.anytimeastro.com/cookie-policy\" target=\"_blank\">Cookie Policy</a></li>\n        </ul>\n      </div>\n \n      <!-- Col 4: Download Apps + Social -->\n      <div class=\"ata-footer__col\">\n        <span class=\"ata-footer__col-title\">Download Our Apps</span>\n \n        <div class=\"ata-footer__apps\">\n          <a href=\"https://play.google.com/store/apps/details?id=com.dashaspeaks.astrology.online.chat\" target=\"_blank\" rel=\"noopener\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/google-play.png\" alt=\"Get it on Google Play\" />\n          </a>\n          <a href=\"https://apps.apple.com/in/app/anytime-astro-live-chat-talk/id1536125164\" target=\"_blank\" rel=\"noopener\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/app-store.png\" alt=\"Available on App Store\" />\n          </a>\n        </div>\n \n        <!-- Social icons -->\n        <div class=\"ata-footer__social\">\n          <a href=\"https://www.facebook.com/anytimeastro/\" target=\"_blank\" rel=\"noopener\" aria-label=\"Facebook\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/fb.svg\" alt=\"Facebook\" />\n          </a>\n          <a href=\"https://twitter.com/AnytimeAstro\" target=\"_blank\" rel=\"noopener\" aria-label=\"Twitter / X\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/twitter.svg\" alt=\"Twitter\" />\n          </a>\n          <a href=\"https://www.linkedin.com/company/anytime-astro/\" target=\"_blank\" rel=\"noopener\" aria-label=\"LinkedIn\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/linkedin.svg\" alt=\"LinkedIn\" />\n          </a>\n          <a href=\"https://www.instagram.com/anytimeastro/\" target=\"_blank\" rel=\"noopener\" aria-label=\"Instagram\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/insta.svg\" alt=\"Instagram\" />\n          </a>\n          <a href=\"https://www.youtube.com/channel/UCKMy6D0GnSJTGg9ZpR0wAUg\" target=\"_blank\" rel=\"noopener\" aria-label=\"YouTube\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/youtubene.svg\" alt=\"YouTube\" />\n          </a>\n          <a href=\"https://in.pinterest.com/anytimeastro/\" target=\"_blank\" rel=\"noopener\" aria-label=\"Pinterest\">\n            <img src=\"https://cdn.anytimeastro.com/anytimeastro/store/web/images/pinterest.svg\" alt=\"Pinterest\" />\n          </a>\n        </div>\n      </div>\n \n    </div><!-- /.ata-footer__cols -->\n  </div><!-- /.ata-footer__body -->\n \n  <!-- Copyright bar -->\n  <div class=\"ata-footer__copyright\">\n    Copyright &copy; 2020-2026 Innovana Astro Services Ltd. All Rights Reserved\n  </div>\n \n</footer>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "accent-2",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "b1e26dc1-10a7-4411-a818-6554b9683f20": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Puja Categories",
+            "menu": ""
+          }
+        },
+        "91a82b28-87a5-4783-84c8-e02248dda247": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": ""
+          }
+        },
+        "f47efaa5-cb3b-4e16-8454-9811a35df651": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "<strong>Support</strong>",
+            "menu": ""
+          }
+        },
+        "5988435b-7e84-4cf3-a79e-15e2a17896af": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Useful Links",
+            "menu": ""
+          }
+        },
+        "34997741-2ef3-4ac7-a375-a23dda7c580c": {
+          "type": "text",
+          "settings": {
+            "heading": "Get in Touch",
+            "subtext": "<h3>Innovana Astro Services Limited</h3><p>1- KHA -18, Jawahar Nagar,<br/>Jaipur, Rajasthan, 302004 India</p><p> <a href=\"mailto:support@anytimeastro.com\">support@anytimeastro.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1e26dc1-10a7-4411-a818-6554b9683f20",
+        "91a82b28-87a5-4783-84c8-e02248dda247",
+        "f47efaa5-cb3b-4e16-8454-9811a35df651",
+        "5988435b-7e84-4cf3-a79e-15e2a17896af",
+        "34997741-2ef3-4ac7-a375-a23dda7c580c"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "accent-2",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 44,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_dhQbVK",
+    "newsletter",
+    "footer"
+  ]
+}
