@@ -14,7 +14,7 @@
 
 :root {
   --sh-pink: #ee4e5e;
-  --sh-red: #cf3544;
+  --sh-red: #b12b38;
   --sh-red-dark: #b12b38;
   --sh-yellow: #ffd84d;
   --sh-pink-soft: #fff5f6;
@@ -131,9 +131,16 @@
 }
 .sh-icon svg { display: block; }
 .sh-icon svg path,
-.sh-icon svg rect { fill: var(--sh-ink); transition: fill .15s ease; }
-.sh-icon:hover svg path,
-.sh-icon:hover svg rect { fill: var(--sh-pink); }
+.sh-icon svg rect { fill: var(--sh-ink); }
+/* no colour change on hover — icons keep their base colour */
+
+/* keep the keyboard focus ring, drop the box browsers draw on mouse click */
+.sh-header a:focus:not(:focus-visible),
+.sh-header button:focus:not(:focus-visible),
+.sh-header summary:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
 
 /* cart bubble */
 .sh-cart { position: relative; }
@@ -292,7 +299,6 @@
   color: #fff !important;
   text-decoration: none !important;
 }
-.sh-group__title:hover { color: #ffe9ec !important; }
 
 .sh-badge {
   display: inline-flex;
@@ -319,10 +325,7 @@
   text-decoration: none !important;
   background: transparent;
 }
-.sh-link:hover {
-  color: #ffe9ec !important;
-  text-decoration: underline !important;
-}
+.sh-link:hover { text-decoration: underline !important; }
 .sh-link--sub { padding-left: 14px; font-size: 14px; opacity: .9; }
 
 /* chevron that collapses a group on mobile */
@@ -388,10 +391,7 @@
   .sh-logo__sub { color: rgba(255, 255, 255, .88) !important; }
   .sh-icon svg path,
   .sh-icon svg rect { fill: #fff; }
-  .sh-icon:hover svg path,
-  .sh-icon:hover svg rect { fill: #ffdfe3; }
   .sh-user__caret { border-top-color: #fff; }
-  .sh-cart-bubble { background: #fff; color: var(--sh-red); }
 
   /* --- drawer --- */
   .sh-mega {
@@ -435,8 +435,6 @@
     font-size: 15px;
     color: #2a2a2a !important;
   }
-  .sh-group__title:hover { color: var(--sh-pink) !important; }
-
   .sh-group__toggle {
     display: block;
     top: 12px;
@@ -458,10 +456,6 @@
     font-size: 14px;
     color: #555 !important;
   }
-  .sh-link:hover {
-    color: var(--sh-pink) !important;
-    text-decoration: none !important;
-  }
   .sh-link--sub { padding-left: 14px; opacity: 1; }
 }
 
@@ -474,17 +468,25 @@
 }
 
 @media (max-width: 575.98px) {
-  .sh-logo__img { width: 40px; height: 40px; }
-  .sh-logo__name { font-size: 17px; }
-  .sh-logo__sub { font-size: 10px; }
-  .sh-icons { gap: 13px; }
-  .sh-nav__inner { min-height: 50px; }
-  .sh-header .container { padding-left: 12px; padding-right: 12px; }
+  .sh-logo__img { width: 38px; height: 38px; }
+  .sh-logo__name { font-size: 16px; }
+  .sh-logo__sub { font-size: 9.5px; }
+  .sh-icons { gap: 12px; }
+  .sh-nav__inner { min-height: 50px; gap: 8px; }
 }
 
-@media (max-width: 400px) {
-  .sh-logo__sub { display: none; }
-  .sh-logo__name { font-size: 15px; }
-  .sh-logo__img { width: 34px; height: 34px; }
-  .sh-icons { gap: 10px; }
+/* Keep the full brand name AND tagline visible on the smallest screens —
+   shrink type and let the tagline wrap instead of hiding it. */
+@media (max-width: 420px) {
+  .sh-logo { gap: 7px; }
+  .sh-logo__img { width: 32px; height: 32px; }
+  .sh-logo__name { font-size: 14px; }
+  .sh-logo__sub {
+    font-size: 8.5px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+  .sh-icons { gap: 9px; }
+  .sh-icon svg { width: 19px; height: auto; }
+  .sh-nav__inner.page-width { padding-left: 10px; padding-right: 10px; }
 }
