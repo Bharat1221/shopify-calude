@@ -934,3 +934,9 @@ box-shadow: rgba(0, 0, 0, 0.34) 10px 11px 40px -4px!important;
 .main-breadcrumbs .breadcrumb > a:first-child .fa-home {
   font-size: 15px;
 }
+
+@media screen and (max-width: 400px) {
+  .main-breadcrumbs .breadcrumb {
+    font-size: 11px !important;
+  }
+}
