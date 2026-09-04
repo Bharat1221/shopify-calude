@@ -1,1 +1,289 @@
-{"sections":{"banner":{"type":"main-collection-banner","disabled":true,"custom_css":[],"settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"background-2"}},"product-grid":{"type":"main-collection-product-grid","disabled":true,"settings":{"products_per_page":8,"columns_desktop":4,"image_ratio":"portrait","show_secondary_image":true,"show_vendor":false,"show_rating":false,"enable_quick_add":false,"enable_filtering":true,"filter_type":"horizontal","enable_sorting":true,"columns_mobile":"2","padding_top":28,"padding_bottom":60}},"d5da6c86-4947-48b4-81ef-8010bb7f57ec":{"type":"collection-list","blocks":{"de26931f-5113-44df-bfd9-2a0ee1819794":{"type":"featured_collection","settings":{"collection":"maha-puja"}},"template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-0":{"type":"featured_collection","settings":{"collection":"career-finance-puja"}},"template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-1":{"type":"featured_collection","settings":{"collection":"education-puja"}},"template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-2":{"type":"featured_collection","settings":{"collection":"marriage-puja"}},"386241d1-d01b-4295-b78e-605b9f2ca040":{"type":"featured_collection","settings":{"collection":"health-puja"}},"2955ee60-7f2c-4bcf-80c3-8cad38133002":{"type":"featured_collection","settings":{"collection":"love-puja"}},"2a48341f-1007-4c4f-82fb-044d01f975ca":{"type":"featured_collection","settings":{"collection":"child-puja"}},"3ade1c77-2e11-46a0-ab18-aaf9c45be794":{"type":"featured_collection","settings":{"collection":"legal-puja"}},"8700baf3-374f-4ae1-b51b-aad4b8458ee5":{"type":"featured_collection","settings":{"collection":"planetary-puja"}},"a5eed841-6f87-46ed-97bb-73d5548ac3b8":{"type":"featured_collection","settings":{"collection":"special-puja"}}},"block_order":["de26931f-5113-44df-bfd9-2a0ee1819794","template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-0","template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-1","template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-2","386241d1-d01b-4295-b78e-605b9f2ca040","2955ee60-7f2c-4bcf-80c3-8cad38133002","2a48341f-1007-4c4f-82fb-044d01f975ca","3ade1c77-2e11-46a0-ab18-aaf9c45be794","8700baf3-374f-4ae1-b51b-aad4b8458ee5","a5eed841-6f87-46ed-97bb-73d5548ac3b8"],"settings":{"title":"All Categories","heading_size":"h2","image_ratio":"square","columns_desktop":5,"color_scheme":"background-1","show_view_all":false,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"9d926daa-dece-47ef-8c3c-f5b88642f741":{"type":"collapsible-content","blocks":{"template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-0":{"type":"collapsible_row","settings":{"heading":"Guidance from Certified Experts","icon":"none","row_content":"<p>Anytime Astro has a team of experienced Astrologers who recommend you the suitable Puja and Vedic-certified Pandits who perform Pujas with utmost devotion and adherence to ancient Vedic rituals. Their expertise ensures that the Puja is conducted with precision and effectiveness for best results.<\/p>","page":""}},"template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-1":{"type":"collapsible_row","settings":{"heading":"Assured Sanctity and Authenticity","icon":"none","row_content":"<p>Anytime Astro maintains the sanctity and authenticity of all Pujas conducted through our platform. The mantras, rituals, and procedures are followed meticulously, ensuring a spiritually enriching experience.<\/p>","page":""}},"template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-2":{"type":"collapsible_row","settings":{"heading":"Worldwide Service","icon":"none","row_content":"<p>No matter where you reside, Anytime Astro covers a vast geographic area, ensuring that you can avail of our online Puja booking services from any part of the world. Now experience divine blessings without any geographical limitations.<\/p>","page":""}},"7fe4d4f5-afc2-4c8f-9bd3-5b8a07b619ed":{"type":"collapsible_row","settings":{"heading":"Convenience at Your Fingertips","icon":"none","row_content":"<p>Booking a Puja online with Anytime Astro offers unparalleled convenience. You can explore a wide range of Pujas and book them from the comfort of your home, eliminating the need to visit multiple temples or priests physically.<\/p>","page":""}},"c90baa70-f8bf-4084-86fa-f8ec77b29aec":{"type":"collapsible_row","settings":{"heading":"Transparent Pricing","icon":"none","row_content":"<p>With Anytime Astro, you get transparent pricing for all our Puja services. There are no hidden charges or last-minute surprises, making the Puja booking process straightforward and trustworthy.<\/p>","page":""}},"7cc84325-21ce-4c5f-962b-fda5724bbe8f":{"type":"collapsible_row","settings":{"heading":"Round the Clock Support","icon":"none","row_content":"<p>Our customer support team is always available to assist you at every step of your Puja booking journey. Whether you have questions, need guidance, or require any help, we are here to support you.<\/p>","page":""}}},"block_order":["template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-0","template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-1","template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-2","7fe4d4f5-afc2-4c8f-9bd3-5b8a07b619ed","c90baa70-f8bf-4084-86fa-f8ec77b29aec","7cc84325-21ce-4c5f-962b-fda5724bbe8f"],"custom_css":[".caption-with-letter-spacing {font-size: 1.6rem; line-height: calc(1 + 0.2 \/ var(--font-body-scale)); text-transform: inherit; letter-spacing: normal;}"],"settings":{"caption":"We respect and appreciate your valuable trust in us. Anytime Astro team is committed to providing you with the best service and following all authentic Vedic procedures while arranging and performing the puja with full dedication - just as you would!","heading":"<strong>Why Perform Online Puja & Homam with Anytime Astro?<\/strong>","heading_size":"h2","heading_alignment":"center","layout":"none","color_scheme":"background-2","container_color_scheme":"background-2","open_first_collapsible_row":false,"image_ratio":"adapt","desktop_layout":"image_second","padding_top":36,"padding_bottom":36}},"a66c75b5-d1f0-4072-8cd4-aab7defb470a":{"type":"multicolumn","blocks":{"template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-0":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/experts.svg","title":"<strong>Performed by Experts<\/strong>","text":"","link_label":"","link":""}},"template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-1":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/vedic-rituals.svg","title":"<strong>Personalized Vedic Rituals<\/strong>","text":"","link_label":"","link":""}},"template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-2":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/affordable.svg","title":"<strong>Affordable & Convenient <\/strong>","text":"","link_label":"","link":""}},"08ff6742-e5fe-49bf-9317-fef3b9699d7f":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/reliable.svg","title":"<strong>100% Reliable Services<\/strong>","text":"","link_label":"","link":""}}},"block_order":["template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-0","template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-1","template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-2","08ff6742-e5fe-49bf-9317-fef3b9699d7f"],"settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","columns_desktop":4,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":0}}},"order":["banner","product-grid","d5da6c86-4947-48b4-81ef-8010bb7f57ec","9d926daa-dece-47ef-8c3c-f5b88642f741","a66c75b5-d1f0-4072-8cd4-aab7defb470a"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-2"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 8,
+        "columns_desktop": 4,
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 28,
+        "padding_bottom": 60
+      }
+    },
+    "d5da6c86-4947-48b4-81ef-8010bb7f57ec": {
+      "type": "collection-list",
+      "blocks": {
+        "de26931f-5113-44df-bfd9-2a0ee1819794": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "maha-puja"
+          }
+        },
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "career-finance-puja"
+          }
+        },
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "education-puja"
+          }
+        },
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "marriage-puja"
+          }
+        },
+        "386241d1-d01b-4295-b78e-605b9f2ca040": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "health-puja"
+          }
+        },
+        "2955ee60-7f2c-4bcf-80c3-8cad38133002": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "love-puja"
+          }
+        },
+        "2a48341f-1007-4c4f-82fb-044d01f975ca": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "child-puja"
+          }
+        },
+        "3ade1c77-2e11-46a0-ab18-aaf9c45be794": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "legal-puja"
+          }
+        },
+        "8700baf3-374f-4ae1-b51b-aad4b8458ee5": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "planetary-puja"
+          }
+        },
+        "a5eed841-6f87-46ed-97bb-73d5548ac3b8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "special-puja"
+          }
+        }
+      },
+      "block_order": [
+        "de26931f-5113-44df-bfd9-2a0ee1819794",
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-0",
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-1",
+        "template--18945861550395__d5da6c86-4947-48b4-81ef-8010bb7f57ec-1683111003e4c95dc8-2",
+        "386241d1-d01b-4295-b78e-605b9f2ca040",
+        "2955ee60-7f2c-4bcf-80c3-8cad38133002",
+        "2a48341f-1007-4c4f-82fb-044d01f975ca",
+        "3ade1c77-2e11-46a0-ab18-aaf9c45be794",
+        "8700baf3-374f-4ae1-b51b-aad4b8458ee5",
+        "a5eed841-6f87-46ed-97bb-73d5548ac3b8"
+      ],
+      "settings": {
+        "title": "All Categories",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "9d926daa-dece-47ef-8c3c-f5b88642f741": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Guidance from Certified Experts",
+            "icon": "none",
+            "row_content": "<p>Anytime Astro has a team of experienced Astrologers who recommend you the suitable Puja and Vedic-certified Pandits who perform Pujas with utmost devotion and adherence to ancient Vedic rituals. Their expertise ensures that the Puja is conducted with precision and effectiveness for best results.</p>",
+            "page": ""
+          }
+        },
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Assured Sanctity and Authenticity",
+            "icon": "none",
+            "row_content": "<p>Anytime Astro maintains the sanctity and authenticity of all Pujas conducted through our platform. The mantras, rituals, and procedures are followed meticulously, ensuring a spiritually enriching experience.</p>",
+            "page": ""
+          }
+        },
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Worldwide Service",
+            "icon": "none",
+            "row_content": "<p>No matter where you reside, Anytime Astro covers a vast geographic area, ensuring that you can avail of our online Puja booking services from any part of the world. Now experience divine blessings without any geographical limitations.</p>",
+            "page": ""
+          }
+        },
+        "7fe4d4f5-afc2-4c8f-9bd3-5b8a07b619ed": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Convenience at Your Fingertips",
+            "icon": "none",
+            "row_content": "<p>Booking a Puja online with Anytime Astro offers unparalleled convenience. You can explore a wide range of Pujas and book them from the comfort of your home, eliminating the need to visit multiple temples or priests physically.</p>",
+            "page": ""
+          }
+        },
+        "c90baa70-f8bf-4084-86fa-f8ec77b29aec": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Transparent Pricing",
+            "icon": "none",
+            "row_content": "<p>With Anytime Astro, you get transparent pricing for all our Puja services. There are no hidden charges or last-minute surprises, making the Puja booking process straightforward and trustworthy.</p>",
+            "page": ""
+          }
+        },
+        "7cc84325-21ce-4c5f-962b-fda5724bbe8f": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Round the Clock Support",
+            "icon": "none",
+            "row_content": "<p>Our customer support team is always available to assist you at every step of your Puja booking journey. Whether you have questions, need guidance, or require any help, we are here to support you.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-0",
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-1",
+        "template--18694281003323__9d926daa-dece-47ef-8c3c-f5b88642f741-168241389776229f96-2",
+        "7fe4d4f5-afc2-4c8f-9bd3-5b8a07b619ed",
+        "c90baa70-f8bf-4084-86fa-f8ec77b29aec",
+        "7cc84325-21ce-4c5f-962b-fda5724bbe8f"
+      ],
+      "custom_css": [
+        ".caption-with-letter-spacing {font-size: 1.6rem; line-height: calc(1 + 0.2 / var(--font-body-scale)); text-transform: inherit; letter-spacing: normal;}"
+      ],
+      "settings": {
+        "caption": "We respect and appreciate your valuable trust in us. Anytime Astro team is committed to providing you with the best service and following all authentic Vedic procedures while arranging and performing the puja with full dedication - just as you would!",
+        "heading": "<strong>Why Perform Online Puja & Homam with Anytime Astro?</strong>",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "a66c75b5-d1f0-4072-8cd4-aab7defb470a": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/experts.svg",
+            "title": "<strong>Performed by Experts</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/vedic-rituals.svg",
+            "title": "<strong>Personalized Vedic Rituals</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/affordable.svg",
+            "title": "<strong>Affordable & Convenient </strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "08ff6742-e5fe-49bf-9317-fef3b9699d7f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/reliable.svg",
+            "title": "<strong>100% Reliable Services</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-0",
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-1",
+        "template--18694281003323__a66c75b5-d1f0-4072-8cd4-aab7defb470a-1682414224907093a0-2",
+        "08ff6742-e5fe-49bf-9317-fef3b9699d7f"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "d5da6c86-4947-48b4-81ef-8010bb7f57ec",
+    "9d926daa-dece-47ef-8c3c-f5b88642f741",
+    "a66c75b5-d1f0-4072-8cd4-aab7defb470a"
+  ]
+}
