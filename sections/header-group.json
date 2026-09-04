@@ -1,1 +1,74 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","disabled":true,"blocks":{"announcement-bar-0":{"type":"announcement","disabled":true,"settings":{"text":"Free Shipping On Orders Over ₹2100*","text_alignment":"center","color_scheme":"background-2","link":""}}},"block_order":["announcement-bar-0"],"settings":{}},"header":{"type":"header","custom_css":["@media screen and (max-width: 991px) {.gradient {background-color: #b12b38; }}",".header__heading a:hover {color: #000 !important; text-decoration: none !important;}",".anytime-logo-text {font-weight: 600;}",".header {margin: 0 auto !important;}",".anytime-logo-ntext {font-family: var(--font-heading-family);}"],"settings":{"logo_position":"middle-left","menu":"puja-main-menu","menu_type_desktop":"dropdown","sticky_header_type":"always","show_line_separator":false,"color_scheme":"background-2","enable_country_selector":false,"enable_language_selector":false,"mobile_logo_position":"center","margin_bottom":0,"padding_top":8,"padding_bottom":8}},"962c5e1f-8ad8-41e0-8ff8-313e8980520f":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":"","color_scheme":"background-1","padding_top":40,"padding_bottom":52}}},"order":["announcement-bar","header","962c5e1f-8ad8-41e0-8ff8-313e8980520f"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Free Shipping On Orders Over ₹2100*",
+            "text_alignment": "center",
+            "color_scheme": "background-2",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        "@media screen and (max-width: 991px) {.gradient {background-color: #b12b38; }}",
+        ".header__heading a:hover {color: #000 !important; text-decoration: none !important;}",
+        ".anytime-logo-text {font-weight: 600;}",
+        ".header {margin: 0 auto !important;}",
+        ".anytime-logo-ntext {font-family: var(--font-heading-family);}"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "background-2",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "962c5e1f-8ad8-41e0-8ff8-313e8980520f": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "962c5e1f-8ad8-41e0-8ff8-313e8980520f"
+  ]
+}
